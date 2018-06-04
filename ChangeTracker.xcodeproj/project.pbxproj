@@ -11,7 +11,37 @@
 		2275B06820C5B22B003F28D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06720C5B22B003F28D3 /* ViewController.swift */; };
 		2275B06A20C5B22B003F28D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2275B06920C5B22B003F28D3 /* Assets.xcassets */; };
 		2275B06D20C5B22B003F28D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2275B06B20C5B22B003F28D3 /* Main.storyboard */; };
+		2275B08420C5B256003F28D3 /* changetrackd.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 2275B07920C5B256003F28D3 /* changetrackd.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2275B08B20C5B3AC003F28D3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08A20C5B3AC003F28D3 /* main.swift */; };
+		2275B08D20C5B408003F28D3 /* changetrackdproto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08C20C5B408003F28D3 /* changetrackdproto.swift */; };
+		2275B08F20C5B48F003F28D3 /* changetrackdimpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08E20C5B48F003F28D3 /* changetrackdimpl.swift */; };
+		2275B09320C5B556003F28D3 /* LoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2275B09220C5B556003F28D3 /* LoginItem.m */; };
+		2275B09620C5CA0C003F28D3 /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B09520C5CA0C003F28D3 /* DataTypes.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2275B08220C5B256003F28D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2275B05A20C5B22B003F28D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2275B07820C5B256003F28D3;
+			remoteInfo = changetrackd;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2275B08820C5B256003F28D3 /* Embed XPC Services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+				2275B08420C5B256003F28D3 /* changetrackd.xpc in Embed XPC Services */,
+			);
+			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2275B06220C5B22B003F28D3 /* ChangeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,10 +51,28 @@
 		2275B06C20C5B22B003F28D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2275B06E20C5B22B003F28D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2275B06F20C5B22B003F28D3 /* ChangeTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeTracker.entitlements; sourceTree = "<group>"; };
+		2275B07920C5B256003F28D3 /* changetrackd.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = changetrackd.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		2275B08120C5B256003F28D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2275B08920C5B3AC003F28D3 /* changetrackd-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "changetrackd-Bridging-Header.h"; sourceTree = "<group>"; };
+		2275B08A20C5B3AC003F28D3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		2275B08C20C5B408003F28D3 /* changetrackdproto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changetrackdproto.swift; sourceTree = "<group>"; };
+		2275B08E20C5B48F003F28D3 /* changetrackdimpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changetrackdimpl.swift; sourceTree = "<group>"; };
+		2275B09020C5B556003F28D3 /* ChangeTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChangeTracker-Bridging-Header.h"; sourceTree = "<group>"; };
+		2275B09120C5B556003F28D3 /* LoginItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginItem.h; sourceTree = "<group>"; };
+		2275B09220C5B556003F28D3 /* LoginItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginItem.m; sourceTree = "<group>"; };
+		2275B09420C5B711003F28D3 /* changetrackd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = changetrackd.entitlements; sourceTree = "<group>"; };
+		2275B09520C5CA0C003F28D3 /* DataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2275B05F20C5B22B003F28D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2275B07620C5B256003F28D3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				2275B06420C5B22B003F28D3 /* ChangeTracker */,
+				2275B07A20C5B256003F28D3 /* changetrackd */,
 				2275B06320C5B22B003F28D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				2275B06220C5B22B003F28D3 /* ChangeTracker.app */,
+				2275B07920C5B256003F28D3 /* changetrackd.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,10 +107,27 @@
 				2275B06720C5B22B003F28D3 /* ViewController.swift */,
 				2275B06920C5B22B003F28D3 /* Assets.xcassets */,
 				2275B06B20C5B22B003F28D3 /* Main.storyboard */,
+				2275B09520C5CA0C003F28D3 /* DataTypes.swift */,
 				2275B06E20C5B22B003F28D3 /* Info.plist */,
 				2275B06F20C5B22B003F28D3 /* ChangeTracker.entitlements */,
+				2275B09120C5B556003F28D3 /* LoginItem.h */,
+				2275B09220C5B556003F28D3 /* LoginItem.m */,
+				2275B09020C5B556003F28D3 /* ChangeTracker-Bridging-Header.h */,
 			);
 			path = ChangeTracker;
+			sourceTree = "<group>";
+		};
+		2275B07A20C5B256003F28D3 /* changetrackd */ = {
+			isa = PBXGroup;
+			children = (
+				2275B09420C5B711003F28D3 /* changetrackd.entitlements */,
+				2275B08120C5B256003F28D3 /* Info.plist */,
+				2275B08A20C5B3AC003F28D3 /* main.swift */,
+				2275B08920C5B3AC003F28D3 /* changetrackd-Bridging-Header.h */,
+				2275B08C20C5B408003F28D3 /* changetrackdproto.swift */,
+				2275B08E20C5B48F003F28D3 /* changetrackdimpl.swift */,
+			);
+			path = changetrackd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,15 +140,34 @@
 				2275B05E20C5B22B003F28D3 /* Sources */,
 				2275B05F20C5B22B003F28D3 /* Frameworks */,
 				2275B06020C5B22B003F28D3 /* Resources */,
+				2275B08820C5B256003F28D3 /* Embed XPC Services */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2275B08320C5B256003F28D3 /* PBXTargetDependency */,
 			);
 			name = ChangeTracker;
 			productName = ChangeTracker;
 			productReference = 2275B06220C5B22B003F28D3 /* ChangeTracker.app */;
 			productType = "com.apple.product-type.application";
+		};
+		2275B07820C5B256003F28D3 /* changetrackd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2275B08520C5B256003F28D3 /* Build configuration list for PBXNativeTarget "changetrackd" */;
+			buildPhases = (
+				2275B07520C5B256003F28D3 /* Sources */,
+				2275B07620C5B256003F28D3 /* Frameworks */,
+				2275B07720C5B256003F28D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = changetrackd;
+			productName = changetrackd;
+			productReference = 2275B07920C5B256003F28D3 /* changetrackd.xpc */;
+			productType = "com.apple.product-type.xpc-service";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,7 +181,26 @@
 				TargetAttributes = {
 					2275B06120C5B22B003F28D3 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					2275B07820C5B256003F28D3 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -113,6 +218,7 @@
 			projectRoot = "";
 			targets = (
 				2275B06120C5B22B003F28D3 /* ChangeTracker */,
+				2275B07820C5B256003F28D3 /* changetrackd */,
 			);
 		};
 /* End PBXProject section */
@@ -127,6 +233,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2275B07720C5B256003F28D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -134,12 +247,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2275B09320C5B556003F28D3 /* LoginItem.m in Sources */,
+				2275B09620C5CA0C003F28D3 /* DataTypes.swift in Sources */,
 				2275B06820C5B22B003F28D3 /* ViewController.swift in Sources */,
 				2275B06620C5B22B003F28D3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2275B07520C5B256003F28D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2275B08B20C5B3AC003F28D3 /* main.swift in Sources */,
+				2275B08F20C5B48F003F28D3 /* changetrackdimpl.swift in Sources */,
+				2275B08D20C5B408003F28D3 /* changetrackdproto.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2275B08320C5B256003F28D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2275B07820C5B256003F28D3 /* changetrackd */;
+			targetProxy = 2275B08220C5B256003F28D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2275B06B20C5B22B003F28D3 /* Main.storyboard */ = {
@@ -262,7 +395,9 @@
 		2275B07320C5B22B003F28D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ChangeTracker/ChangeTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -271,6 +406,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ChangeTracker/ChangeTracker-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -278,7 +415,9 @@
 		2275B07420C5B22B003F28D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ChangeTracker/ChangeTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -287,7 +426,45 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ChangeTracker/ChangeTracker-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		2275B08620C5B256003F28D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = changetrackd/changetrackd.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V3585DUGLZ;
+				INFOPLIST_FILE = changetrackd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.changetrackd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "changetrackd/changetrackd-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2275B08720C5B256003F28D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = changetrackd/changetrackd.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V3585DUGLZ;
+				INFOPLIST_FILE = changetrackd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.changetrackd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "changetrackd/changetrackd-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -308,6 +485,15 @@
 			buildConfigurations = (
 				2275B07320C5B22B003F28D3 /* Debug */,
 				2275B07420C5B22B003F28D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2275B08520C5B256003F28D3 /* Build configuration list for PBXNativeTarget "changetrackd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2275B08620C5B256003F28D3 /* Debug */,
+				2275B08720C5B256003F28D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

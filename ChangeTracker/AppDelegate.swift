@@ -10,9 +10,15 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-
+    
+    @objc dynamic var urlLst = [TrackedURL]()
+    
+    override init() {
+        super.init();
+        urlLst.append(TrackedURL(trackURL: URL(string: "/Users/Shared")!));
+        urlLst.append(TrackedURL(trackURL: URL(string: "/Users/Shared")!));
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
@@ -20,7 +26,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
-
+    
+    class func urlList() -> [TrackedURL] {
+        let ww = NSApplication.shared.delegate! as! AppDelegate
+        return ww.urlLst
+    }
 }
 
