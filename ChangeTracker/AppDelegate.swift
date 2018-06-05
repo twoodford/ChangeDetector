@@ -12,6 +12,8 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc dynamic var urlLst = [TrackedURL]()
+    var URLArrayController: NSArrayController?
+    var URLTable: NSTableView?
     
     override init() {
         super.init();

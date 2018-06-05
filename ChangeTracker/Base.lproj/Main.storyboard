@@ -440,7 +440,7 @@
                                 <toolbarItem implicitItemIdentifier="9062BCAA-F73A-4FE3-8301-210032AF85B2" label="Remove Path" paletteLabel="Remove Path" tag="-1" image="NSRemoveTemplate" id="v1w-wf-oHX">
                                     <nil key="toolTip"/>
                                     <connections>
-                                        <action selector="remove:" target="Kw0-DM-bIT" id="4db-ov-4CO"/>
+                                        <action selector="removeURLWithSender:" target="B8D-0N-5wS" id="Wox-Zv-z8W"/>
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="45640202-B384-40F4-9E8A-B5F5B203E362" label="Refresh" paletteLabel="Refresh" tag="-1" image="NSRefreshTemplate" id="Pjd-DV-JnR">
@@ -486,6 +486,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="testWithSender:" target="XfG-lQ-9wD" id="f6X-gd-FT3"/>
+                                        </connections>
                                     </button>
                                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="y3Y-5l-LMN">
                                         <rect key="frame" x="0.0" y="31" width="450" height="111"/>
@@ -665,12 +668,17 @@
                     </view>
                     <connections>
                         <outlet property="URLArrayController" destination="Kw0-DM-bIT" id="sjh-Ix-03C"/>
+                        <outlet property="URLTable" destination="eiW-z8-p7H" id="p8i-7c-Mqj"/>
                         <outlet property="url" destination="5tj-Ew-yMA" id="wqm-En-tr9"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="K5b-B2-h8f"/>
-                <arrayController id="Kw0-DM-bIT"/>
+                <arrayController id="Kw0-DM-bIT">
+                    <connections>
+                        <binding destination="XfG-lQ-9wD" name="contentArray" keyPath="self.appDelegate.urlLst" id="6cH-sb-DFz"/>
+                    </connections>
+                </arrayController>
             </objects>
             <point key="canvasLocation" x="75" y="670"/>
         </scene>

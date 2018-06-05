@@ -12,13 +12,16 @@ class ViewController: NSViewController {
     
     @IBOutlet var URLArrayController: NSArrayController!;
     
-    @IBOutlet var url: NSTableColumn!;
+    @IBOutlet var URLTable: NSTableView!;
+    
+    @objc var appDelegate = NSApplication.shared.delegate! as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("i'm here");
         // Do any additional setup after loading the view.
-        URLArrayController.content = AppDelegate.urlList();
+        appDelegate.URLArrayController = URLArrayController
+        appDelegate.URLTable = URLTable
     }
     
     override var representedObject: Any? {
@@ -28,27 +31,36 @@ class ViewController: NSViewController {
     }
     
     @IBAction func test(sender: NSButton) {
-        print(url.dataCell);
+        print(URLTable.selectedRow);
+        
     }
 }
 
 class WindowController: NSWindowController {
-    
+    var appDelegate = NSApplication.shared.delegate! as! AppDelegate
     
     required init?(coder: NSCoder) {
         super.init(coder: coder);
     }
     
     @IBAction func addURL(caller: NSToolbarItem) {
-        print("TODO lazy load");
-        let ww = NSApplication.shared.delegate! as! AppDelegate
-        ww.urlLst.append(TrackedURL(trackURL: URL(string: "/Users/Shared")!));
-        for url in ww.urlLst {
-            print(url.urlString());
-        }
+        let openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseDirectories = true
+        openPanel.canCreateDirectories = false
+        openPanel.canChooseFiles = true
+        openPanel.beginSheetModal(for: self.window!, completionHandler: { (result) -> Void in
+            if result == NSApplication.ModalResponse.OK {
+                self.appDelegate.urlLst.append(TrackedURL(trackURL: openPanel.url!));
+            }
+        });
     }
     
-    @IBAction func removeURL(caller: NSToolbarItem) {
-        print("TODO lazy load");
+    @IBAction func removeURL(sender: NSToolbarItem) {
+        if let row = appDelegate.URLTable?.selectedRow {
+            if row >= 0 {
+                appDelegate.URLArrayController?.remove(atArrangedObjectIndex: row)
+            }
+        }
     }
 }
