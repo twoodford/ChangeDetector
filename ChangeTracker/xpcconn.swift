@@ -26,6 +26,12 @@ class changetrackdconn {
         let connection = self._backend.remoteObjectProxyWithErrorHandler {
             (error) in print("remote proxy error: %@", error)
             } as! changetrackdproto
-        connection.setPaths(list)
+        var urls: [String] = []
+        var uuids: [String] = []
+        for track in list {
+            urls.append(track.urlStr)
+            uuids.append(track.id.uuidString)
+        }
+        connection.setPaths(urls: urls, uuids: uuids)
     }
 }
