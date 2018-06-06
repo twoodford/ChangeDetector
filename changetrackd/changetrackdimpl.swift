@@ -7,11 +7,21 @@
 //
 
 import Foundation
+import ChangeTracking
 
 class changetrackdimpl: NSObject, changetrackdproto {
-    func setPaths() {
+    func setPaths(_ paths: [TrackedURL]) {
         // TODO
         print("TODO Lazy-loading actual implementation ;)")
+        for path in paths {
+            print(path.urlString())
+        }
+    }
+    
+    func getPaths() -> [TrackedURL] {
+        // TODO
+        print("TODO Lazy-loading actual implementation ;)")
+        return []
     }
     
     override init() {

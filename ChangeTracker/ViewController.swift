@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ChangeTracking
 
 class ViewController: NSViewController {
     
@@ -18,7 +19,6 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("i'm here");
         // Do any additional setup after loading the view.
         appDelegate.URLArrayController = URLArrayController
         appDelegate.URLTable = URLTable
@@ -38,6 +38,7 @@ class ViewController: NSViewController {
 
 class WindowController: NSWindowController {
     var appDelegate = NSApplication.shared.delegate! as! AppDelegate
+    var xpcconn = changetrackdconn()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder);
@@ -52,6 +53,7 @@ class WindowController: NSWindowController {
         openPanel.beginSheetModal(for: self.window!, completionHandler: { (result) -> Void in
             if result == NSApplication.ModalResponse.OK {
                 self.appDelegate.urlLst.append(TrackedURL(trackURL: openPanel.url!));
+                self.xpcconn.updateURLs(list: self.appDelegate.urlLst)
             }
         });
     }

@@ -11,19 +11,39 @@
 		2275B06820C5B22B003F28D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06720C5B22B003F28D3 /* ViewController.swift */; };
 		2275B06A20C5B22B003F28D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2275B06920C5B22B003F28D3 /* Assets.xcassets */; };
 		2275B06D20C5B22B003F28D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2275B06B20C5B22B003F28D3 /* Main.storyboard */; };
-		2275B08420C5B256003F28D3 /* changetrackd.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 2275B07920C5B256003F28D3 /* changetrackd.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2275B08B20C5B3AC003F28D3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08A20C5B3AC003F28D3 /* main.swift */; };
 		2275B08F20C5B48F003F28D3 /* changetrackdimpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08E20C5B48F003F28D3 /* changetrackdimpl.swift */; };
 		2275B09320C5B556003F28D3 /* LoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2275B09220C5B556003F28D3 /* LoginItem.m */; };
-		2275B09620C5CA0C003F28D3 /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B09520C5CA0C003F28D3 /* DataTypes.swift */; };
 		2275B09B20C706A9003F28D3 /* changetrackdproto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08C20C5B408003F28D3 /* changetrackdproto.swift */; };
 		2275B09E20C70729003F28D3 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2275B09D20C70729003F28D3 /* ServiceManagement.framework */; };
-		2275B09F20C70741003F28D3 /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B09520C5CA0C003F28D3 /* DataTypes.swift */; };
 		2275B0A020C70743003F28D3 /* changetrackdproto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08C20C5B408003F28D3 /* changetrackdproto.swift */; };
+		2275B0A220C70BB6003F28D3 /* xpcconn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B0A120C70BB6003F28D3 /* xpcconn.swift */; };
+		2275B0CE20C721D8003F28D3 /* ChangeTracking.h in Headers */ = {isa = PBXBuildFile; fileRef = 2275B0BE20C721D8003F28D3 /* ChangeTracking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2275B0D120C721D8003F28D3 /* ChangeTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */; };
+		2275B0D220C721D8003F28D3 /* ChangeTracking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2275B0DA20C721F9003F28D3 /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B09520C5CA0C003F28D3 /* DataTypes.swift */; };
+		2275B0DB20C72262003F28D3 /* ChangeTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */; };
+		2275B0E320C7242D003F28D3 /* ChangeTrackingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B0E220C7242D003F28D3 /* ChangeTrackingTests.swift */; };
+		2275B0E520C7242D003F28D3 /* ChangeTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */; };
+		2275B0EB20C72769003F28D3 /* changetrackd.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 2275B07920C5B256003F28D3 /* changetrackd.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2275B08220C5B256003F28D3 /* PBXContainerItemProxy */ = {
+		2275B0CF20C721D8003F28D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2275B05A20C5B22B003F28D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2275B0BB20C721D7003F28D3;
+			remoteInfo = ChangeTracking;
+		};
+		2275B0E620C7242D003F28D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2275B05A20C5B22B003F28D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2275B0BB20C721D7003F28D3;
+			remoteInfo = ChangeTracking;
+		};
+		2275B0EC20C72769003F28D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2275B05A20C5B22B003F28D3 /* Project object */;
 			proxyType = 1;
@@ -33,13 +53,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2275B08820C5B256003F28D3 /* Embed XPC Services */ = {
+		2275B0D620C721D8003F28D3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2275B0D220C721D8003F28D3 /* ChangeTracking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2275B0EE20C72769003F28D3 /* Embed XPC Services */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
 			dstSubfolderSpec = 16;
 			files = (
-				2275B08420C5B256003F28D3 /* changetrackd.xpc in Embed XPC Services */,
+				2275B0EB20C72769003F28D3 /* changetrackd.xpc in Embed XPC Services */,
 			);
 			name = "Embed XPC Services";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +97,13 @@
 		2275B09420C5B711003F28D3 /* changetrackd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = changetrackd.entitlements; sourceTree = "<group>"; };
 		2275B09520C5CA0C003F28D3 /* DataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypes.swift; sourceTree = "<group>"; };
 		2275B09D20C70729003F28D3 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		2275B0A120C70BB6003F28D3 /* xpcconn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xpcconn.swift; sourceTree = "<group>"; };
+		2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChangeTracking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2275B0BE20C721D8003F28D3 /* ChangeTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeTracking.h; sourceTree = "<group>"; };
+		2275B0BF20C721D8003F28D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2275B0E020C7242D003F28D3 /* ChangeTrackingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChangeTrackingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2275B0E220C7242D003F28D3 /* ChangeTrackingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTrackingTests.swift; sourceTree = "<group>"; };
+		2275B0E420C7242D003F28D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +112,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2275B09E20C70729003F28D3 /* ServiceManagement.framework in Frameworks */,
+				2275B0D120C721D8003F28D3 /* ChangeTracking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +120,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2275B0DB20C72262003F28D3 /* ChangeTracking.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2275B0B820C721D7003F28D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2275B0DD20C7242D003F28D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2275B0E520C7242D003F28D3 /* ChangeTracking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +148,8 @@
 				2275B09A20C70696003F28D3 /* common */,
 				2275B06420C5B22B003F28D3 /* ChangeTracker */,
 				2275B07A20C5B256003F28D3 /* changetrackd */,
+				2275B0BD20C721D8003F28D3 /* ChangeTracking */,
+				2275B0E120C7242D003F28D3 /* ChangeTrackingTests */,
 				2275B06320C5B22B003F28D3 /* Products */,
 				2275B09C20C70729003F28D3 /* Frameworks */,
 			);
@@ -103,6 +160,8 @@
 			children = (
 				2275B06220C5B22B003F28D3 /* ChangeTracker.app */,
 				2275B07920C5B256003F28D3 /* changetrackd.xpc */,
+				2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */,
+				2275B0E020C7242D003F28D3 /* ChangeTrackingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +178,7 @@
 				2275B09120C5B556003F28D3 /* LoginItem.h */,
 				2275B09220C5B556003F28D3 /* LoginItem.m */,
 				2275B09020C5B556003F28D3 /* ChangeTracker-Bridging-Header.h */,
+				2275B0A120C70BB6003F28D3 /* xpcconn.swift */,
 			);
 			path = ChangeTracker;
 			sourceTree = "<group>";
@@ -138,7 +198,6 @@
 		2275B09A20C70696003F28D3 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				2275B09520C5CA0C003F28D3 /* DataTypes.swift */,
 				2275B08C20C5B408003F28D3 /* changetrackdproto.swift */,
 			);
 			path = common;
@@ -152,7 +211,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2275B0BD20C721D8003F28D3 /* ChangeTracking */ = {
+			isa = PBXGroup;
+			children = (
+				2275B0BE20C721D8003F28D3 /* ChangeTracking.h */,
+				2275B09520C5CA0C003F28D3 /* DataTypes.swift */,
+				2275B0BF20C721D8003F28D3 /* Info.plist */,
+			);
+			path = ChangeTracking;
+			sourceTree = "<group>";
+		};
+		2275B0E120C7242D003F28D3 /* ChangeTrackingTests */ = {
+			isa = PBXGroup;
+			children = (
+				2275B0E220C7242D003F28D3 /* ChangeTrackingTests.swift */,
+				2275B0E420C7242D003F28D3 /* Info.plist */,
+			);
+			path = ChangeTrackingTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2275B0B920C721D7003F28D3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2275B0CE20C721D8003F28D3 /* ChangeTracking.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		2275B06120C5B22B003F28D3 /* ChangeTracker */ = {
@@ -162,12 +251,14 @@
 				2275B05E20C5B22B003F28D3 /* Sources */,
 				2275B05F20C5B22B003F28D3 /* Frameworks */,
 				2275B06020C5B22B003F28D3 /* Resources */,
-				2275B08820C5B256003F28D3 /* Embed XPC Services */,
+				2275B0D620C721D8003F28D3 /* Embed Frameworks */,
+				2275B0EE20C72769003F28D3 /* Embed XPC Services */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2275B08320C5B256003F28D3 /* PBXTargetDependency */,
+				2275B0D020C721D8003F28D3 /* PBXTargetDependency */,
+				2275B0ED20C72769003F28D3 /* PBXTargetDependency */,
 			);
 			name = ChangeTracker;
 			productName = ChangeTracker;
@@ -190,6 +281,42 @@
 			productName = changetrackd;
 			productReference = 2275B07920C5B256003F28D3 /* changetrackd.xpc */;
 			productType = "com.apple.product-type.xpc-service";
+		};
+		2275B0BB20C721D7003F28D3 /* ChangeTracking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2275B0D320C721D8003F28D3 /* Build configuration list for PBXNativeTarget "ChangeTracking" */;
+			buildPhases = (
+				2275B0B720C721D7003F28D3 /* Sources */,
+				2275B0B820C721D7003F28D3 /* Frameworks */,
+				2275B0B920C721D7003F28D3 /* Headers */,
+				2275B0BA20C721D7003F28D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChangeTracking;
+			productName = ChangeTracking;
+			productReference = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2275B0DF20C7242D003F28D3 /* ChangeTrackingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2275B0E820C7242D003F28D3 /* Build configuration list for PBXNativeTarget "ChangeTrackingTests" */;
+			buildPhases = (
+				2275B0DC20C7242D003F28D3 /* Sources */,
+				2275B0DD20C7242D003F28D3 /* Frameworks */,
+				2275B0DE20C7242D003F28D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2275B0E720C7242D003F28D3 /* PBXTargetDependency */,
+			);
+			name = ChangeTrackingTests;
+			productName = ChangeTrackingTests;
+			productReference = 2275B0E020C7242D003F28D3 /* ChangeTrackingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -224,6 +351,14 @@
 							};
 						};
 					};
+					2275B0BB20C721D7003F28D3 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					2275B0DF20C7242D003F28D3 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 2275B05D20C5B22B003F28D3 /* Build configuration list for PBXProject "ChangeTracker" */;
@@ -241,6 +376,8 @@
 			targets = (
 				2275B06120C5B22B003F28D3 /* ChangeTracker */,
 				2275B07820C5B256003F28D3 /* changetrackd */,
+				2275B0BB20C721D7003F28D3 /* ChangeTracking */,
+				2275B0DF20C7242D003F28D3 /* ChangeTrackingTests */,
 			);
 		};
 /* End PBXProject section */
@@ -262,6 +399,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2275B0BA20C721D7003F28D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2275B0DE20C7242D003F28D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -270,8 +421,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2275B09320C5B556003F28D3 /* LoginItem.m in Sources */,
+				2275B0A220C70BB6003F28D3 /* xpcconn.swift in Sources */,
 				2275B09B20C706A9003F28D3 /* changetrackdproto.swift in Sources */,
-				2275B09620C5CA0C003F28D3 /* DataTypes.swift in Sources */,
 				2275B06820C5B22B003F28D3 /* ViewController.swift in Sources */,
 				2275B06620C5B22B003F28D3 /* AppDelegate.swift in Sources */,
 			);
@@ -281,20 +432,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2275B09F20C70741003F28D3 /* DataTypes.swift in Sources */,
 				2275B0A020C70743003F28D3 /* changetrackdproto.swift in Sources */,
 				2275B08B20C5B3AC003F28D3 /* main.swift in Sources */,
 				2275B08F20C5B48F003F28D3 /* changetrackdimpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2275B0B720C721D7003F28D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2275B0DA20C721F9003F28D3 /* DataTypes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2275B0DC20C7242D003F28D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2275B0E320C7242D003F28D3 /* ChangeTrackingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2275B08320C5B256003F28D3 /* PBXTargetDependency */ = {
+		2275B0D020C721D8003F28D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2275B0BB20C721D7003F28D3 /* ChangeTracking */;
+			targetProxy = 2275B0CF20C721D8003F28D3 /* PBXContainerItemProxy */;
+		};
+		2275B0E720C7242D003F28D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2275B0BB20C721D7003F28D3 /* ChangeTracking */;
+			targetProxy = 2275B0E620C7242D003F28D3 /* PBXContainerItemProxy */;
+		};
+		2275B0ED20C72769003F28D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2275B07820C5B256003F28D3 /* changetrackd */;
-			targetProxy = 2275B08220C5B256003F28D3 /* PBXContainerItemProxy */;
+			targetProxy = 2275B0EC20C72769003F28D3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -464,13 +640,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = V3585DUGLZ;
 				INFOPLIST_FILE = changetrackd/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @loader_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.changetrackd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "changetrackd/changetrackd-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -483,12 +659,90 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = V3585DUGLZ;
 				INFOPLIST_FILE = changetrackd/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @loader_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.changetrackd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "changetrackd/changetrackd-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		2275B0D420C721D8003F28D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V3585DUGLZ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ChangeTracking/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeTracking;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2275B0D520C721D8003F28D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V3585DUGLZ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ChangeTracking/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeTracking;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2275B0E920C7242D003F28D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V3585DUGLZ;
+				INFOPLIST_FILE = ChangeTrackingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeTrackingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		2275B0EA20C7242D003F28D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V3585DUGLZ;
+				INFOPLIST_FILE = ChangeTrackingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeTrackingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -518,6 +772,24 @@
 			buildConfigurations = (
 				2275B08620C5B256003F28D3 /* Debug */,
 				2275B08720C5B256003F28D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2275B0D320C721D8003F28D3 /* Build configuration list for PBXNativeTarget "ChangeTracking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2275B0D420C721D8003F28D3 /* Debug */,
+				2275B0D520C721D8003F28D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2275B0E820C7242D003F28D3 /* Build configuration list for PBXNativeTarget "ChangeTrackingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2275B0E920C7242D003F28D3 /* Debug */,
+				2275B0EA20C7242D003F28D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ChangeTracking
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -19,6 +20,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         super.init();
         urlLst.append(TrackedURL(trackURL: URL(string: "/Users/Shared")!));
         urlLst.append(TrackedURL(trackURL: URL(string: "/Users/Shared")!));
+//        let x = TrackedURL(trackURL: URL(string: "/Users/Shared")!)
+//        let dat = NSMutableData(length: 256)!
+//        let z1 = NSKeyedArchiver(forWritingWith: dat)
+//        x.encode(with: z1)
+//        let z2 = NSKeyedUnarchiver(forReadingWith: dat as Data)
+//        let y = TrackedURL(coder: z2)!
+//        print(y.urlStr)
+//        print(y.url)
+//        print(y.id)
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {

@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import ChangeTracking
 
 @objc(changetrackdproto) protocol changetrackdproto {
-    func setPaths()
+    func setPaths(_: [TrackedURL]);
+    func getPaths() -> [TrackedURL];
 }
