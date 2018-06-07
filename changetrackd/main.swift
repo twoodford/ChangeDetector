@@ -45,6 +45,11 @@ class XPCServiceDelegate : NSObject, NSXPCListenerDelegate {
     }
 }
 
+// test
+let tt = DirectoryTracker()
+let ttt = URL(string: "file:///Users/tim/Public")!
+tt.setTrackData(baseURL: ttt, dat: [String:String]())
+tt.didChange()
 
 // Create the listener and resume it:
 let delegate = XPCServiceDelegate()

@@ -1,6 +1,6 @@
 //
 //  DataTypes.swift
-//  ChangeTracker
+//  ChangeTracking framework
 //
 //  Created by Tim on 6/4/18.
 //  Copyright © 2018 Tim Woodford. All rights reserved.
@@ -38,5 +38,14 @@ public class TrackedURL : NSObject,NSSecureCoding {
         url = urlIn as URL
         id = uuid as UUID
         urlStr = url.absoluteString;
+    }
+}
+
+public struct ChangeDescription {
+    public let filePath: String;
+    public let description: String;
+    
+    public init(path: String, extraInfo: String) {
+        filePath = path; description = extraInfo;
     }
 }
