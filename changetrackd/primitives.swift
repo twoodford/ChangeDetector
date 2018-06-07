@@ -45,17 +45,16 @@ let HASH_ALGO = CryptoAlgorithm.SHA1
 func hash(data: Data, algorithm: CryptoAlgorithm) -> String {
     return data.withUnsafeBytes { (dataPtr: UnsafePointer<UInt8>)->String in
         let digestLen = algorithm.digestLength
-        let result = UnsafeMutablePointer<CChar>.allocate(capacity: digestLen+1)
-        let keyStr = "aaaaaaaaaaaaaaaa".cString(using: String.Encoding.utf8)
-        let keyLen = 16
+        let result = UnsafeMutablePointer<CChar>.allocate(capacity: digestLen)
+        let keyStr = "".cString(using: String.Encoding.utf8)!
+        let keyLen = keyStr.count
         
-        CCHmac(algorithm.HMACAlgorithm, keyStr!, keyLen, dataPtr, data.count, result)
+        CCHmac(algorithm.HMACAlgorithm, keyStr, keyLen, dataPtr, data.count, result)
         
-        result[digestLen] = 0;
-        let digest = String(utf8String: result)
-        result.deallocate(capacity: digestLen+1)
+        let digestData = Data(buffer: UnsafeMutableBufferPointer<CChar>(start: result, count: digestLen))
+        result.deallocate(capacity: digestLen)
         
-        return digest!
+        return digestData.base64EncodedString()
     }
 }
 
@@ -118,7 +117,7 @@ public class FileHashTracker : FilesHashTracker, ChangeTracker {
     
     public func setTrackData(baseURL: URL, dat: Any) {
         url = baseURL
-        super.tracks[baseURL] = (dat as! String)
+        super.tracks[baseURL] = dat as? String ?? ""
     }
     
     public func getTrackData() -> Any {
@@ -141,8 +140,11 @@ public class DirectoryTracker : ChangeTracker {
     public required init() { }
     
     public func setTrackData(baseURL: URL, dat: Any) {
-        paths = dat as! [String: String]
         base = baseURL
+        // If data is uninitialized, set base URL and everything will be a new file
+        if let pathDat = dat as? [String: String] {
+            paths = pathDat
+        }
     }
     
     public func getTrackData() -> Any {
@@ -167,7 +169,12 @@ public class DirectoryTracker : ChangeTracker {
             for enumPath in try! FileManager.default.subpathsOfDirectory(atPath: basePath) {
                 print(enumPath);
                 if !paths.keys.contains(enumPath) {
-                    newURLs.append(baseU.appendingPathComponent(enumPath))
+                    var isDir: ObjCBool = false
+                    let enumURL = baseU.appendingPathComponent(enumPath)
+                    let exists = FileManager.default.fileExists(atPath: enumURL.path, isDirectory: &isDir)
+                    if exists && !isDir.boolValue {
+                        newURLs.append(baseU.appendingPathComponent(enumPath))
+                    }
                 }
             }
             fileTracker.addPaths(paths: newURLs)
@@ -176,6 +183,11 @@ public class DirectoryTracker : ChangeTracker {
             var fileChanges = fileTracker.didChange()
             
             // Convert URL-based data back to relative paths
+            let droppedComponents = baseU.pathComponents.count
+            for (subURL, subData) in fileTracker.getTrackData() {
+                let pathComponents = subURL.pathComponents[droppedComponents...]
+                paths[pathComponents.joined(separator: "/")] = subData
+            }
             
             // Combine change sources
             for url in newURLs {
