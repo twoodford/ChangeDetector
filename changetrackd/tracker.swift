@@ -19,11 +19,12 @@ class Tracker {
     
     public init() {
         storageFileURL = (FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: CT_SHARED_CONTAINER_ID)?.appendingPathComponent("changetracker"))!
+        try! FileManager.default.createDirectory(at: storageFileURL, withIntermediateDirectories: true)
     }
     
     public func scheduleUpdater(delaySeconds: Int) {
         let dispatcher = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
-        let deadline = DispatchTime.now() + .seconds(1)
+        let deadline = DispatchTime.now() + .seconds(delaySeconds)
         dispatcher.asyncAfter(deadline: deadline, execute: {
             self.changeCheck()
         })
@@ -31,6 +32,12 @@ class Tracker {
     
     func filePath(forUUID uuid: UUID) -> URL {
         return storageFileURL.appendingPathComponent(uuid.uuidString)
+    }
+    
+    func trackerData(tracker: ChangeTracker, trackerType: String) -> Data {
+        let encData = ["tracker": trackerType,
+                       "data": tracker.getTrackData()]
+        return try! JSONSerialization.data(withJSONObject: encData, options: [])
     }
     
     func addPath(path: TrackedURL) {
@@ -41,26 +48,27 @@ class Tracker {
             let tracker = getTracker(trackerID: trackerType)!
             tracker.setTrackData(baseURL: path.url, dat: [])
             let _ = tracker.didChange()
-            let newDat = try! JSONSerialization.data(withJSONObject: tracker.getTrackData(), options: [])
-            try! newDat.write(to: datURL)
+            try! self.trackerData(tracker: tracker, trackerType: trackerType).write(to: datURL)
         }
     }
     
     func changeCheck() {
         let paths = defaults.getPaths()
         for path in paths {
-            // Decode change checking data
             let url = filePath(forUUID: path.id)
-            let dat = try! Data(contentsOf: url)
-            let decodedDat = try! JSONSerialization.jsonObject(with: dat, options: []) as! [String:Any]
-            if let trackerType = decodedDat["tracker"] as? String {
-                let tracker = getTracker(trackerID: trackerType)!
-                tracker.setTrackData(baseURL: path.url, dat: decodedDat["data"]!)
-                changes.append(contentsOf: tracker.didChange())
-                let newDat = try! JSONSerialization.data(withJSONObject: tracker.getTrackData(), options: [])
-                try! newDat.write(to: url)
+            // Decode change checking data
+            if let decodedDat = try? JSONSerialization.jsonObject(with: Data(contentsOf: url), options: []) as! [String:Any]{
+                
+                if let trackerType = decodedDat["tracker"] as? String {
+                    let tracker = getTracker(trackerID: trackerType)!
+                    tracker.setTrackData(baseURL: path.url, dat: decodedDat["data"]!)
+                    changes.append(contentsOf: tracker.didChange())
+                    try! trackerData(tracker: tracker, trackerType: trackerType).write(to: url)
+                } else {
+                    print("error: could not find tracker class")
+                }
             } else {
-                print("error: could not find tracker class")
+                addPath(path: path)
             }
         }
         scheduleUpdater(delaySeconds: 360)

@@ -12,6 +12,12 @@ import ChangeTracking
 class changetrackdimpl: NSObject, changetrackdproto {
     
     let ddefaults = ChangeDefaults()
+    let tracker = Tracker()
+    
+    override init() {
+        super.init()
+        tracker.scheduleUpdater(delaySeconds: 4)
+    }
     
     func setPaths(urls: [String], uuids: [String]) {
         var i=0;
@@ -33,12 +39,9 @@ class changetrackdimpl: NSObject, changetrackdproto {
             print(path.urlString())
             if !prevPaths.contains { element in return path.isEqual(to: element) } {
                 print("added")
+                tracker.addPath(path: path)
             }
         }
         ddefaults.setPaths(paths);
-    }
-    
-    override init() {
-        // TODO
     }
 }
