@@ -10,7 +10,5 @@ import Foundation
 import ChangeTracking
 
 @objc(changetrackdproto) protocol changetrackdproto {
-    func setPaths(_: [TrackedURL]);
-    func setPaths(urls: [String], uuids: [String]);
-    func getPaths() -> [TrackedURL];
+    func setPaths(urls: [String], uuids: [String])
 }
