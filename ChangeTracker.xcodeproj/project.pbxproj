@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2207D45920C98BDF00961F77 /* filetypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45820C98BDF00961F77 /* filetypes.swift */; };
+		2207D45B20C998C500961F77 /* tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45A20C998C500961F77 /* tracker.swift */; };
 		2264240320C8568000D5DBF2 /* shared_defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240120C8561E00D5DBF2 /* shared_defaults.swift */; };
 		2264240720C875AC00D5DBF2 /* primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240620C875AC00D5DBF2 /* primitives.swift */; };
 		2275B06620C5B22B003F28D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06520C5B22B003F28D3 /* AppDelegate.swift */; };
@@ -80,6 +82,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2207D45820C98BDF00961F77 /* filetypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filetypes.swift; sourceTree = "<group>"; };
+		2207D45A20C998C500961F77 /* tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tracker.swift; sourceTree = "<group>"; };
 		2264240120C8561E00D5DBF2 /* shared_defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shared_defaults.swift; sourceTree = "<group>"; };
 		2264240420C8755500D5DBF2 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
 		2264240620C875AC00D5DBF2 /* primitives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = primitives.swift; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				2275B08920C5B3AC003F28D3 /* changetrackd-Bridging-Header.h */,
 				2275B08E20C5B48F003F28D3 /* changetrackdimpl.swift */,
 				2264240620C875AC00D5DBF2 /* primitives.swift */,
+				2207D45820C98BDF00961F77 /* filetypes.swift */,
+				2207D45A20C998C500961F77 /* tracker.swift */,
 			);
 			path = changetrackd;
 			sourceTree = "<group>";
@@ -445,6 +451,8 @@
 			files = (
 				2275B0A020C70743003F28D3 /* changetrackdproto.swift in Sources */,
 				2275B08B20C5B3AC003F28D3 /* main.swift in Sources */,
+				2207D45B20C998C500961F77 /* tracker.swift in Sources */,
+				2207D45920C98BDF00961F77 /* filetypes.swift in Sources */,
 				2275B08F20C5B48F003F28D3 /* changetrackdimpl.swift in Sources */,
 				2264240720C875AC00D5DBF2 /* primitives.swift in Sources */,
 			);

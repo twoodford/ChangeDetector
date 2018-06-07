@@ -46,8 +46,8 @@ func hash(data: Data, algorithm: CryptoAlgorithm) -> String {
     return data.withUnsafeBytes { (dataPtr: UnsafePointer<UInt8>)->String in
         let digestLen = algorithm.digestLength
         let result = UnsafeMutablePointer<CChar>.allocate(capacity: digestLen+1)
-        let keyStr = "".cString(using: String.Encoding.utf8)
-        let keyLen = 0
+        let keyStr = "aaaaaaaaaaaaaaaa".cString(using: String.Encoding.utf8)
+        let keyLen = 16
         
         CCHmac(algorithm.HMACAlgorithm, keyStr!, keyLen, dataPtr, data.count, result)
         
@@ -60,6 +60,9 @@ func hash(data: Data, algorithm: CryptoAlgorithm) -> String {
 }
 
 public protocol ChangeTracker {
+    // Require no-args initializer so we can build these on the fly
+    init()
+    
     // Tracking data should be either Strings or Dictionaries
     func setTrackData(baseURL: URL, dat: Any);
     func getTrackData() -> Any;
@@ -69,7 +72,7 @@ public protocol ChangeTracker {
 }
 
 // Tracking data: Dict<URL, SHA-1 hash>
-public class FileHashTracker {
+public class FilesHashTracker {
     
     let algo: CryptoAlgorithm = HASH_ALGO
     var tracks: [URL: String] = [:]
@@ -106,13 +109,36 @@ public class FileHashTracker {
     }
 }
 
+// Tracking data: String (SHA-1 hash)
+public class FileHashTracker : FilesHashTracker, ChangeTracker {
+    var hash: String = "";
+    var url: URL?;
+    
+    public required override init() { }
+    
+    public func setTrackData(baseURL: URL, dat: Any) {
+        url = baseURL
+        super.tracks[baseURL] = (dat as! String)
+    }
+    
+    public func getTrackData() -> Any {
+        if let uurl = url {
+            return super.tracks[uurl] ?? ""
+        } else {
+            return ""
+        }
+    }
+}
+
 // Tracking data structure
 // Dict<String, String>
 // format: path with leading slash: string data for file tracker
 public class DirectoryTracker : ChangeTracker {
     var paths: [String: String] = [:];
     var base: URL?;
-    let fileTracker = FileHashTracker()
+    let fileTracker = FilesHashTracker()
+    
+    public required init() { }
     
     public func setTrackData(baseURL: URL, dat: Any) {
         paths = dat as! [String: String]
