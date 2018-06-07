@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2264240320C8568000D5DBF2 /* shared_defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240120C8561E00D5DBF2 /* shared_defaults.swift */; };
+		2264240720C875AC00D5DBF2 /* primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240620C875AC00D5DBF2 /* primitives.swift */; };
 		2275B06620C5B22B003F28D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06520C5B22B003F28D3 /* AppDelegate.swift */; };
 		2275B06820C5B22B003F28D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06720C5B22B003F28D3 /* ViewController.swift */; };
 		2275B06A20C5B22B003F28D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2275B06920C5B22B003F28D3 /* Assets.xcassets */; };
@@ -78,6 +80,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2264240120C8561E00D5DBF2 /* shared_defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shared_defaults.swift; sourceTree = "<group>"; };
+		2264240420C8755500D5DBF2 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
+		2264240620C875AC00D5DBF2 /* primitives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = primitives.swift; sourceTree = "<group>"; };
 		2275B06220C5B22B003F28D3 /* ChangeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2275B06520C5B22B003F28D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2275B06720C5B22B003F28D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +196,7 @@
 				2275B08A20C5B3AC003F28D3 /* main.swift */,
 				2275B08920C5B3AC003F28D3 /* changetrackd-Bridging-Header.h */,
 				2275B08E20C5B48F003F28D3 /* changetrackdimpl.swift */,
+				2264240620C875AC00D5DBF2 /* primitives.swift */,
 			);
 			path = changetrackd;
 			sourceTree = "<group>";
@@ -206,6 +212,7 @@
 		2275B09C20C70729003F28D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2264240420C8755500D5DBF2 /* libcommonCrypto.tbd */,
 				2275B09D20C70729003F28D3 /* ServiceManagement.framework */,
 			);
 			name = Frameworks;
@@ -216,6 +223,7 @@
 			children = (
 				2275B0BE20C721D8003F28D3 /* ChangeTracking.h */,
 				2275B09520C5CA0C003F28D3 /* DataTypes.swift */,
+				2264240120C8561E00D5DBF2 /* shared_defaults.swift */,
 				2275B0BF20C721D8003F28D3 /* Info.plist */,
 			);
 			path = ChangeTracking;
@@ -337,7 +345,7 @@
 								enabled = 1;
 							};
 							com.apple.Sandbox = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -348,6 +356,9 @@
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 0;
 							};
 						};
 					};
@@ -435,6 +446,7 @@
 				2275B0A020C70743003F28D3 /* changetrackdproto.swift in Sources */,
 				2275B08B20C5B3AC003F28D3 /* main.swift in Sources */,
 				2275B08F20C5B48F003F28D3 /* changetrackdimpl.swift in Sources */,
+				2264240720C875AC00D5DBF2 /* primitives.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2264240320C8568000D5DBF2 /* shared_defaults.swift in Sources */,
 				2275B0DA20C721F9003F28D3 /* DataTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,6 +654,10 @@
 				DEVELOPMENT_TEAM = V3585DUGLZ;
 				INFOPLIST_FILE = changetrackd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @loader_path/../../../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.changetrackd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -660,6 +677,10 @@
 				DEVELOPMENT_TEAM = V3585DUGLZ;
 				INFOPLIST_FILE = changetrackd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @loader_path/../../../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.changetrackd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

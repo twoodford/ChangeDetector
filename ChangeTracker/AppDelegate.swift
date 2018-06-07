@@ -12,14 +12,14 @@ import ChangeTracking
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    @objc dynamic var urlLst = [TrackedURL]()
+    @objc dynamic var urlLst: [TrackedURL]
     var URLArrayController: NSArrayController?
     var URLTable: NSTableView?
+    let ddefaults = ChangeDefaults()
     
     override init() {
+        urlLst = ddefaults.getPaths()
         super.init();
-        urlLst.append(TrackedURL(trackURL: URL(string: "/Users/Shared")!));
-        urlLst.append(TrackedURL(trackURL: URL(string: "/Users/Shared")!));
 //        let x = TrackedURL(trackURL: URL(string: "/Users/Shared")!)
 //        let dat = NSMutableData(length: 256)!
 //        let z1 = NSKeyedArchiver(forWritingWith: dat)

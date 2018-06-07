@@ -10,6 +10,9 @@ import Foundation
 import ChangeTracking
 
 class changetrackdimpl: NSObject, changetrackdproto {
+    
+    let ddefaults = ChangeDefaults()
+    
     func setPaths(urls: [String], uuids: [String]) {
         var i=0;
         var tracks: [TrackedURL] = []
@@ -28,12 +31,7 @@ class changetrackdimpl: NSObject, changetrackdproto {
         for path in paths {
             print(path.urlString())
         }
-    }
-    
-    func getPaths() -> [TrackedURL] {
-        // TODO
-        print("TODO Lazy-loading actual implementation ;)")
-        return []
+        ddefaults.setPaths(paths);
     }
     
     override init() {
