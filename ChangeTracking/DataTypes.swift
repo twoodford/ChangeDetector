@@ -39,6 +39,14 @@ public class TrackedURL : NSObject,NSSecureCoding {
         id = uuid as UUID
         urlStr = url.absoluteString;
     }
+    
+    public override func isEqual(to object: Any?) -> Bool {
+        if let other = object as? TrackedURL {
+            return urlStr.compare(other.urlStr) == ComparisonResult.orderedSame && id.hashValue == other.id.hashValue
+        } else {
+            return false
+        }
+    }
 }
 
 public struct ChangeDescription {

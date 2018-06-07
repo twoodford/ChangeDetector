@@ -28,8 +28,12 @@ class changetrackdimpl: NSObject, changetrackdproto {
     func setPaths(_ paths: [TrackedURL]) {
         // TODO
         print("TODO Lazy-loading actual implementation ;)")
+        let prevPaths = ddefaults.getPaths()
         for path in paths {
             print(path.urlString())
+            if !prevPaths.contains { element in return path.isEqual(to: element) } {
+                print("added")
+            }
         }
         ddefaults.setPaths(paths);
     }
