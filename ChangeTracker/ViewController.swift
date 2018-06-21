@@ -12,16 +12,22 @@ import ChangeTracking
 class ViewController: NSViewController {
     
     @IBOutlet var URLArrayController: NSArrayController!;
-    
+    @IBOutlet var ChangesArrayController: NSArrayController!;
     @IBOutlet var URLTable: NSTableView!;
+    @objc dynamic var changeList: [ChangeDescription] = []
     
     @objc var appDelegate = NSApplication.shared.delegate! as! AppDelegate
+    
+    let xpcconn = changetrackdconn()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         appDelegate.URLArrayController = URLArrayController
         appDelegate.URLTable = URLTable
+        
+        ChangesArrayController.addObject(ChangeDescription(path: "/path/to/fun", extraInfo: "blah"))
+        print((ChangesArrayController.arrangedObjects as! [ChangeDescription])[0].filePath)
     }
     
     override var representedObject: Any? {
@@ -30,9 +36,31 @@ class ViewController: NSViewController {
         }
     }
     
-    @IBAction func test(sender: NSButton) {
-        print(URLTable.selectedRow);
-        
+    @IBAction func newURLSelected(sender: AnyObject) {
+        // Figure out which UUID we want
+        let selPath = appDelegate.ddefaults.getPaths()[URLTable.clickedRow]
+        print(selPath.url)
+        xpcconn.getChanges(forUUID: selPath.id, handler: {(paths, description) in
+            var changes: [ChangeDescription] = []
+            for i in 0..<paths.count {
+                changes.append(ChangeDescription(path: paths[i], extraInfo: description[i]))
+                print(description[i])
+            }
+            DispatchQueue.main.async {
+                print("main thread")
+                
+                for x in changes {
+                    print(x.filePath)
+                }
+                
+                // Clear previous
+                let len = (self.ChangesArrayController.arrangedObjects as! [ChangeDescription]).count
+                self.ChangesArrayController.remove(atArrangedObjectIndexes: IndexSet(integersIn: 0..<len))
+                
+                // Add new paths
+                self.ChangesArrayController.add(contentsOf: changes)
+            }
+        })
     }
 }
 

@@ -34,4 +34,11 @@ class changetrackdconn {
         }
         connection.setPaths(urls: urls, uuids: uuids)
     }
+    
+    func getChanges(forUUID: UUID, handler: ([String],[String])->Void) {
+        let connection = self._backend.remoteObjectProxyWithErrorHandler {
+            (error) in print("remote proxy error: %@", error)
+            } as! changetrackdproto
+        connection.getChanges(forUUID: forUUID.uuidString, handler: handler)
+    }
 }

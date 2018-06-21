@@ -13,13 +13,14 @@ let CT_SHARED_CONTAINER_ID = "V3585DUGLZ.home.asterius.changetrack"
 
 class Tracker {
     let storageFileURL : URL
-    var changes : [ChangeDescription] = []
+    var changes : [UUID: [ChangeDescription]] = [:]
     var delay = 360 // TODO better delay control (1 hour)
     let defaults = ChangeDefaults()
     
     public init() {
         storageFileURL = (FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: CT_SHARED_CONTAINER_ID)?.appendingPathComponent("changetracker"))!
         try! FileManager.default.createDirectory(at: storageFileURL, withIntermediateDirectories: true)
+        changeCheck()
     }
     
     public func scheduleUpdater(delaySeconds: Int) {
@@ -55,15 +56,18 @@ class Tracker {
     func changeCheck() {
         let paths = defaults.getPaths()
         for path in paths {
-            let url = filePath(forUUID: path.id)
+            let trackDataURL = filePath(forUUID: path.id)
+            if changes[path.id] == nil { changes[path.id] = [] }
             // Decode change checking data
-            if let decodedDat = try? JSONSerialization.jsonObject(with: Data(contentsOf: url), options: []) as! [String:Any]{
-                
+            if let decodedDat = try? JSONSerialization.jsonObject(with: Data(contentsOf: trackDataURL), options: []) as! [String:Any]{
                 if let trackerType = decodedDat["tracker"] as? String {
                     let tracker = getTracker(trackerID: trackerType)!
                     tracker.setTrackData(baseURL: path.url, dat: decodedDat["data"]!)
-                    changes.append(contentsOf: tracker.didChange())
-                    try! trackerData(tracker: tracker, trackerType: trackerType).write(to: url)
+                    changes[path.id]!.append(contentsOf: tracker.didChange())
+                    for x in changes[path.id]! {
+                        NSLog(x.filePath)
+                    }
+                    //try! trackerData(tracker: tracker, trackerType: trackerType).write(to: trackDataURL)
                 } else {
                     print("error: could not find tracker class")
                 }

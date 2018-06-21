@@ -44,4 +44,13 @@ class changetrackdimpl: NSObject, changetrackdproto {
         }
         ddefaults.setPaths(paths);
     }
+    
+    func getChanges(forUUID: String, handler: ([String],[String])->Void) {
+        let changes = tracker.changes[UUID(uuidString: forUUID)!]!
+        let paths = changes.map({(cdescription) in
+            return cdescription.filePath
+        })
+        let descriptions = changes.map({(cdescription) in return cdescription.info})
+        handler(paths, descriptions)
+    }
 }

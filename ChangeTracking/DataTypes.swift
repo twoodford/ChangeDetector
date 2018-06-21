@@ -49,11 +49,18 @@ public class TrackedURL : NSObject,NSSecureCoding {
     }
 }
 
-public struct ChangeDescription {
+public class ChangeDescription: NSObject, NSCopying {
     public let filePath: String;
-    public let description: String;
+    public let info: String;
     
     public init(path: String, extraInfo: String) {
-        filePath = path; description = extraInfo;
+        filePath = path; info = extraInfo;
     }
+    
+    public func copy(with zone: NSZone? = nil) -> Any {
+        return ChangeDescription(path: filePath, extraInfo: info)
+    }
+    
+    @objc public func pathStr() -> String { return filePath }
+    @objc public func descriptionStr() -> String { return info }
 }
