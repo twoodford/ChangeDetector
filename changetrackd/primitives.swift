@@ -100,11 +100,19 @@ public class FilesHashTracker {
         }
     }
     
+    public func removePath(path: URL) {
+        let _ = tracks.removeValue(forKey: path)
+    }
+    
     func checkFile(url: URL) -> Bool {
         let prevHash = tracks[url]
-        let fdata = try! Data(contentsOf: url, options: Data.ReadingOptions.uncached)
-        tracks[url] = hash(data: fdata, algorithm: algo);
-        return prevHash == tracks[url]
+        do {
+            let fdata = try Data(contentsOf: url, options: Data.ReadingOptions.uncached)
+            tracks[url] = hash(data: fdata, algorithm: algo);
+            return prevHash == tracks[url]
+        } catch {
+            return false // TODO
+        }
     }
 }
 
@@ -167,7 +175,6 @@ public class DirectoryTracker : ChangeTracker {
             // Check for new files
             var newURLs = [URL]()
             for enumPath in try! FileManager.default.subpathsOfDirectory(atPath: basePath) {
-                print(enumPath);
                 if !paths.keys.contains(enumPath) {
                     var isDir: ObjCBool = false
                     let enumURL = baseU.appendingPathComponent(enumPath)
@@ -175,6 +182,14 @@ public class DirectoryTracker : ChangeTracker {
                     if exists && !isDir.boolValue {
                         newURLs.append(baseU.appendingPathComponent(enumPath))
                     }
+                }
+            }
+            var removedPaths = [String]()
+            for path in paths.keys {
+                let absPath = basePath+"/"+path
+                if !FileManager.default.fileExists(atPath: absPath) {
+                    fileTracker.removePath(path: URL(fileURLWithPath: absPath))
+                    removedPaths.append(absPath)
                 }
             }
             fileTracker.addPaths(paths: newURLs)
@@ -193,6 +208,10 @@ public class DirectoryTracker : ChangeTracker {
             for url in newURLs {
                 fileChanges.append(ChangeDescription(path: url.path, extraInfo: "New file"))
             }
+            for absPath in removedPaths {
+                fileChanges.append(ChangeDescription(path: absPath, extraInfo: "File disappeared"))
+            }
+            
             return fileChanges;
         } else {
             print("warn: base URL not initialized");

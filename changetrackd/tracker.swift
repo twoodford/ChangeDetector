@@ -14,7 +14,7 @@ let CT_SHARED_CONTAINER_ID = "V3585DUGLZ.home.asterius.changetrack"
 class Tracker {
     let storageFileURL : URL
     var changes : [UUID: [ChangeDescription]] = [:]
-    var delay = 360 // TODO better delay control (1 hour)
+    var delay = 30 // TODO better delay control (1 hour)
     let defaults = ChangeDefaults()
     
     public init() {
@@ -53,7 +53,14 @@ class Tracker {
         }
     }
     
+    func sendChangeNotification() {
+        var nreq = NSUserNotification()
+        nreq.informativeText = "New file changes detected"
+        NSUserNotificationCenter.default.deliver(nreq)
+    }
+    
     func changeCheck() {
+        var newChanges = false
         let paths = defaults.getPaths()
         for path in paths {
             let trackDataURL = filePath(forUUID: path.id)
@@ -63,11 +70,15 @@ class Tracker {
                 if let trackerType = decodedDat["tracker"] as? String {
                     let tracker = getTracker(trackerID: trackerType)!
                     tracker.setTrackData(baseURL: path.url, dat: decodedDat["data"]!)
-                    changes[path.id]!.append(contentsOf: tracker.didChange())
+                    let addChanges = tracker.didChange()
+                    changes[path.id]!.append(contentsOf: addChanges)
                     for x in changes[path.id]! {
                         NSLog(x.filePath)
                     }
-                    //try! trackerData(tracker: tracker, trackerType: trackerType).write(to: trackDataURL)
+                    if addChanges.count > 0 {
+                        newChanges = true
+                    }
+                    try! trackerData(tracker: tracker, trackerType: trackerType).write(to: trackDataURL)
                 } else {
                     print("error: could not find tracker class")
                 }
@@ -75,6 +86,7 @@ class Tracker {
                 addPath(path: path)
             }
         }
-        scheduleUpdater(delaySeconds: 360)
+        
+        scheduleUpdater(delaySeconds: delay)
     }
 }
