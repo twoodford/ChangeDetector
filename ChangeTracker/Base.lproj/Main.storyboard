@@ -440,7 +440,7 @@
                                 <toolbarItem implicitItemIdentifier="9062BCAA-F73A-4FE3-8301-210032AF85B2" label="Remove Path" paletteLabel="Remove Path" tag="-1" image="NSRemoveTemplate" id="v1w-wf-oHX">
                                     <nil key="toolTip"/>
                                     <connections>
-                                        <action selector="removeURLWithSender:" target="B8D-0N-5wS" id="Wox-Zv-z8W"/>
+                                        <action selector="removeURLWithSender:" target="B8D-0N-5wS" id="Nhb-lq-cIv"/>
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="45640202-B384-40F4-9E8A-B5F5B203E362" label="Refresh" paletteLabel="Refresh" tag="-1" image="NSRefreshTemplate" id="Pjd-DV-JnR">

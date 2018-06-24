@@ -90,6 +90,7 @@ class WindowController: NSWindowController {
         if let row = appDelegate.URLTable?.selectedRow {
             if row >= 0 {
                 appDelegate.URLArrayController?.remove(atArrangedObjectIndex: row)
+                self.xpcconn.updateURLs(list: self.appDelegate.urlLst)
             }
         }
     }
