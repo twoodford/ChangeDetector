@@ -38,8 +38,10 @@ class ViewController: NSViewController {
     
     @IBAction func newURLSelected(sender: AnyObject) {
         // Figure out which UUID we want
+        if URLTable.clickedRow < 0 {
+            return // Nothing's actually selected
+        }
         let selPath = appDelegate.ddefaults.getPaths()[URLTable.clickedRow]
-        print(selPath.url)
         xpcconn.getChanges(forUUID: selPath.id, handler: {(paths, description) in
             var changes: [ChangeDescription] = []
             for i in 0..<paths.count {
