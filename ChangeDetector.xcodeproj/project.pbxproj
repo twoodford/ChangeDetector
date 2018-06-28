@@ -86,7 +86,7 @@
 		2275B06920C5B22B003F28D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2275B06C20C5B22B003F28D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2275B06E20C5B22B003F28D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2275B06F20C5B22B003F28D3 /* ChangeTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeTracker.entitlements; sourceTree = "<group>"; };
+		2275B06F20C5B22B003F28D3 /* ChangeDetector.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeDetector.entitlements; sourceTree = "<group>"; };
 		2275B07920C5B256003F28D3 /* changetrackd.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = changetrackd.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		2275B08120C5B256003F28D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2275B08920C5B3AC003F28D3 /* changetrackd-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "changetrackd-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				2275B06920C5B22B003F28D3 /* Assets.xcassets */,
 				2275B06B20C5B22B003F28D3 /* Main.storyboard */,
 				2275B06E20C5B22B003F28D3 /* Info.plist */,
-				2275B06F20C5B22B003F28D3 /* ChangeTracker.entitlements */,
+				2275B06F20C5B22B003F28D3 /* ChangeDetector.entitlements */,
 				2275B09020C5B556003F28D3 /* ChangeTracker-Bridging-Header.h */,
 				2275B0A120C70BB6003F28D3 /* xpcconn.swift */,
 			);
@@ -551,13 +551,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ChangeTracker/ChangeTracker.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ChangeDetector/ChangeDetector.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = V3585DUGLZ;
-				INFOPLIST_FILE = ChangeTracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ChangeDetector/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChangeTracker/ChangeTracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -571,13 +571,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ChangeTracker/ChangeTracker.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ChangeDetector/ChangeDetector.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = V3585DUGLZ;
-				INFOPLIST_FILE = ChangeTracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ChangeDetector/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChangeTracker/ChangeTracker-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
