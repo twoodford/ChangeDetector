@@ -12,4 +12,5 @@ import ChangeTracking
 @objc(changetrackdproto) protocol changetrackdproto {
     func setPaths(urls: [String], uuids: [String])
     func getChanges(forUUID: String, handler: ([String],[String])->Void)
+    func warm() // Dummy function to get the daemon started
 }

@@ -10,7 +10,7 @@ import Foundation
 import ChangeTracking
 
 class changetrackdimpl: NSObject, changetrackdproto {
-    
+
     let ddefaults = ChangeDefaults()
     let tracker = Tracker()
     
@@ -52,5 +52,9 @@ class changetrackdimpl: NSObject, changetrackdproto {
         })
         let descriptions = changes.map({(cdescription) in return cdescription.info})
         handler(paths, descriptions)
+    }
+    
+    func warm() {
+        NSLog("daemon force-started")
     }
 }
