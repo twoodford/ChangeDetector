@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BaseURL" representedClassName="BaseURL" syncable="YES" codeGenerationType="class">
+        <attribute name="uuid" attributeType="String" syncable="YES"/>
+        <relationship name="changes" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DetectedChange" inverseName="baseURL" inverseEntity="DetectedChange" syncable="YES"/>
+    </entity>
+    <entity name="DetectedChange" representedClassName="DetectedChange" syncable="YES" codeGenerationType="class">
+        <attribute name="chDescription" attributeType="String" syncable="YES"/>
+        <attribute name="path" attributeType="URI" syncable="YES"/>
+        <relationship name="baseURL" maxCount="1" deletionRule="Nullify" destinationEntity="BaseURL" inverseName="changes" inverseEntity="BaseURL" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BaseURL" positionX="-324" positionY="-10" width="128" height="75"/>
+        <element name="DetectedChange" positionX="-63" positionY="-18" width="128" height="88"/>
+    </elements>
+</model>

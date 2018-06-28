@@ -9,18 +9,19 @@
 import Foundation
 import ChangeTracking
 
-let CT_SHARED_CONTAINER_ID = "V3585DUGLZ.home.asterius.changetrack"
-
 class Tracker {
-    let storageFileURL : URL
     var changes : [UUID: [ChangeDescription]] = [:]
     var delay = 30 // TODO better delay control (1 hour)
     let defaults = ChangeDefaults()
     
     public init() {
-        storageFileURL = (FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: CT_SHARED_CONTAINER_ID)?.appendingPathComponent("changetracker"))!
-        try! FileManager.default.createDirectory(at: storageFileURL, withIntermediateDirectories: true)
-        changeCheck()
+        try! FileManager.default.createDirectory(at: STORAGE_FILE_URL, withIntermediateDirectories: true)
+        let paths = defaults.getPaths()
+        let changeStore = getChangeStore()
+        for path in paths {
+            changes[path.id] = changeStore.getChanges(forUUID: path.id)
+        }
+        scheduleUpdater(delaySeconds: 0)
     }
     
     public func scheduleUpdater(delaySeconds: Int) {
@@ -32,7 +33,7 @@ class Tracker {
     }
     
     func filePath(forUUID uuid: UUID) -> URL {
-        return storageFileURL.appendingPathComponent(uuid.uuidString)
+        return STORAGE_FILE_URL.appendingPathComponent(uuid.uuidString)
     }
     
     func trackerData(tracker: ChangeTracker, trackerType: String) -> Data {
@@ -54,9 +55,18 @@ class Tracker {
     }
     
     func sendChangeNotification() {
-        var nreq = NSUserNotification()
+        let nreq = NSUserNotification()
         nreq.informativeText = "New file changes detected"
         NSUserNotificationCenter.default.deliver(nreq)
+    }
+    
+    func _storeChanges(uuid: UUID, addChanges: [ChangeDescription]) {
+        changes[uuid]!.append(contentsOf: addChanges)
+        let changeStore = getChangeStore()
+        for addChange in addChanges {
+            changeStore.addChange(addChange, uuid: uuid)
+        }
+        changeStore.commit()
     }
     
     func changeCheck() {
@@ -71,10 +81,7 @@ class Tracker {
                     let tracker = getTracker(trackerID: trackerType)!
                     tracker.setTrackData(baseURL: path.url, dat: decodedDat["data"]!)
                     let addChanges = tracker.didChange()
-                    changes[path.id]!.append(contentsOf: addChanges)
-                    for x in changes[path.id]! {
-                        NSLog(x.filePath)
-                    }
+                    _storeChanges(uuid: path.id, addChanges: addChanges)
                     if addChanges.count > 0 {
                         newChanges = true
                     }
@@ -86,7 +93,9 @@ class Tracker {
                 addPath(path: path)
             }
         }
-        
+        if newChanges {
+            sendChangeNotification()
+        }
         scheduleUpdater(delaySeconds: delay)
     }
 }

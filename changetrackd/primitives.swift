@@ -189,7 +189,7 @@ public class DirectoryTracker : ChangeTracker {
                 let absPath = basePath+"/"+path
                 if !FileManager.default.fileExists(atPath: absPath) {
                     fileTracker.removePath(path: URL(fileURLWithPath: absPath))
-                    removedPaths.append(absPath)
+                    removedPaths.append(path)
                 }
             }
             fileTracker.addPaths(paths: newURLs)
@@ -208,8 +208,10 @@ public class DirectoryTracker : ChangeTracker {
             for url in newURLs {
                 fileChanges.append(ChangeDescription(path: url.path, extraInfo: "New file"))
             }
-            for absPath in removedPaths {
+            for path in removedPaths {
+                let absPath = basePath+"/"+path
                 fileChanges.append(ChangeDescription(path: absPath, extraInfo: "File disappeared"))
+                paths.removeValue(forKey: path)
             }
             
             return fileChanges;
