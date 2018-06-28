@@ -26,8 +26,7 @@ class ViewController: NSViewController {
         appDelegate.URLArrayController = URLArrayController
         appDelegate.URLTable = URLTable
         
-        ChangesArrayController.addObject(ChangeDescription(path: "/path/to/fun", extraInfo: "blah"))
-        print((ChangesArrayController.arrangedObjects as! [ChangeDescription])[0].filePath)
+        xpcconn.warm() // warm up xpc
     }
     
     override var representedObject: Any? {
