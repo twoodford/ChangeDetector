@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ChangeTracker.xcodeproj">
+      location = "self:/Users/tim/Documents/Projects/ChangeTracker/ChangeDetector.xcodeproj">
    </FileRef>
 </Workspace>

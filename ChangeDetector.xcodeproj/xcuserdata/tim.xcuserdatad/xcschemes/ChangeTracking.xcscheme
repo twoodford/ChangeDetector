@@ -17,7 +17,7 @@
                BlueprintIdentifier = "2275B0BB20C721D7003F28D3"
                BuildableName = "ChangeTracking.framework"
                BlueprintName = "ChangeTracking"
-               ReferencedContainer = "container:ChangeTracker.xcodeproj">
+               ReferencedContainer = "container:ChangeDetector.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,7 +50,7 @@
             BlueprintIdentifier = "2275B0BB20C721D7003F28D3"
             BuildableName = "ChangeTracking.framework"
             BlueprintName = "ChangeTracking"
-            ReferencedContainer = "container:ChangeTracker.xcodeproj">
+            ReferencedContainer = "container:ChangeDetector.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "2275B0BB20C721D7003F28D3"
             BuildableName = "ChangeTracking.framework"
             BlueprintName = "ChangeTracking"
-            ReferencedContainer = "container:ChangeTracker.xcodeproj">
+            ReferencedContainer = "container:ChangeDetector.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
