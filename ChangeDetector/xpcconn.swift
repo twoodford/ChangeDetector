@@ -48,4 +48,11 @@ class changetrackdconn {
             } as! changetrackdproto
         connection.warm()
     }
+    
+    func update(completionHandler: ()->Void) {
+        let connection = self._backend.remoteObjectProxyWithErrorHandler {
+            (error) in print("remote proxy error: %@", error)
+            } as! changetrackdproto
+        connection.update(completionHandler: completionHandler)
+    }
 }
