@@ -57,4 +57,12 @@ class changetrackdimpl: NSObject, changetrackdproto {
     func warm() {
         NSLog("daemon force-started")
     }
+    
+    func update(completionHandler: ()->Void)  {
+        let dispatcher = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+        dispatcher.async {
+            self.tracker.changeCheck()
+        }
+        completionHandler()
+    }
 }
