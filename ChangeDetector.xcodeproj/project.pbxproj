@@ -25,15 +25,10 @@
 		2275B0DB20C72262003F28D3 /* ChangeTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */; };
 		2275B0EB20C72769003F28D3 /* changetrackd.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 2275B07920C5B256003F28D3 /* changetrackd.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		22ABD07120E6E7090039210F /* xpcconn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B0A120C70BB6003F28D3 /* xpcconn.swift */; };
-		22ABD07420E6E9AA0039210F /* changetrackdproto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08C20C5B408003F28D3 /* changetrackdproto.swift */; };
-		22ABD08820E6EEBF0039210F /* updater.app in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD07920E6EE870039210F /* updater.app */; };
-		22ABD08B20E6EECD0039210F /* updater.app in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD07920E6EE870039210F /* updater.app */; };
-		22ABD08C20E6EF260039210F /* ChangeTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */; };
 		22C4225C20E033310077A9C2 /* detected-changes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225A20E033310077A9C2 /* detected-changes.xcdatamodeld */; };
 		22C4225E20E033F00077A9C2 /* changestorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225D20E033F00077A9C2 /* changestorage.swift */; };
 		22C4226020E034AF0077A9C2 /* storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225F20E034AF0077A9C2 /* storage.swift */; };
 		22F5FEA920E5890900841935 /* home.asterius.changetrack.updater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22F5FEA820E5890900841935 /* home.asterius.changetrack.updater.plist */; };
-		22F5FEB620E58C2B00841935 /* changes-update in Resources */ = {isa = PBXBuildFile; fileRef = 22F5FEAE20E5896500841935 /* changes-update */; };
 		22F5FEB920E5905600841935 /* changetrackdproto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08C20C5B408003F28D3 /* changetrackdproto.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,13 +46,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2275B07820C5B256003F28D3;
 			remoteInfo = changetrackd;
-		};
-		22ABD08920E6EEBF0039210F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2275B05A20C5B22B003F28D3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 22ABD07820E6EE870039210F;
-			remoteInfo = updater;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -83,15 +71,6 @@
 			);
 			name = "Embed XPC Services";
 			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22F5FEAC20E5896500841935 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -122,12 +101,10 @@
 		2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChangeTracking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2275B0BE20C721D8003F28D3 /* ChangeTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeTracking.h; sourceTree = "<group>"; };
 		2275B0BF20C721D8003F28D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22ABD07920E6EE870039210F /* updater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = updater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C4225B20E033310077A9C2 /* detected-changes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "detected-changes.xcdatamodel"; sourceTree = "<group>"; };
 		22C4225D20E033F00077A9C2 /* changestorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changestorage.swift; sourceTree = "<group>"; };
 		22C4225F20E034AF0077A9C2 /* storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storage.swift; sourceTree = "<group>"; };
 		22F5FEA820E5890900841935 /* home.asterius.changetrack.updater.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = home.asterius.changetrack.updater.plist; sourceTree = "<group>"; };
-		22F5FEAE20E5896500841935 /* changes-update */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "changes-update"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,21 +132,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22ABD07620E6EE870039210F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22ABD08C20E6EF260039210F /* ChangeTracking.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22F5FEAB20E5896500841935 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -190,8 +152,6 @@
 				2275B06220C5B22B003F28D3 /* ChangeDetector.app */,
 				2275B07920C5B256003F28D3 /* changetrackd.xpc */,
 				2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */,
-				22F5FEAE20E5896500841935 /* changes-update */,
-				22ABD07920E6EE870039210F /* updater.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,7 +240,6 @@
 			dependencies = (
 				2275B0D020C721D8003F28D3 /* PBXTargetDependency */,
 				2275B0ED20C72769003F28D3 /* PBXTargetDependency */,
-				22ABD08A20E6EEBF0039210F /* PBXTargetDependency */,
 			);
 			name = ChangeDetector;
 			productName = ChangeTracker;
@@ -322,40 +281,6 @@
 			productReference = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		22ABD07820E6EE870039210F /* updater */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 22ABD08420E6EE870039210F /* Build configuration list for PBXNativeTarget "updater" */;
-			buildPhases = (
-				22ABD07520E6EE870039210F /* Sources */,
-				22ABD07620E6EE870039210F /* Frameworks */,
-				22ABD07720E6EE870039210F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = updater;
-			productName = updater;
-			productReference = 22ABD07920E6EE870039210F /* updater.app */;
-			productType = "com.apple.product-type.application";
-		};
-		22F5FEAD20E5896500841935 /* changes-update */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 22F5FEB220E5896500841935 /* Build configuration list for PBXNativeTarget "changes-update" */;
-			buildPhases = (
-				22F5FEAA20E5896500841935 /* Sources */,
-				22F5FEAB20E5896500841935 /* Frameworks */,
-				22F5FEAC20E5896500841935 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "changes-update";
-			productName = "changes-update";
-			productReference = 22F5FEAE20E5896500841935 /* changes-update */;
-			productType = "com.apple.product-type.tool";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -396,14 +321,6 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
-					22ABD07820E6EE870039210F = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
-					22F5FEAD20E5896500841935 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 2275B05D20C5B22B003F28D3 /* Build configuration list for PBXProject "ChangeDetector" */;
@@ -422,8 +339,6 @@
 				2275B06120C5B22B003F28D3 /* ChangeDetector */,
 				2275B07820C5B256003F28D3 /* changetrackd */,
 				2275B0BB20C721D7003F28D3 /* ChangeTracking */,
-				22F5FEAD20E5896500841935 /* changes-update */,
-				22ABD07820E6EE870039210F /* updater */,
 			);
 		};
 /* End PBXProject section */
@@ -436,9 +351,6 @@
 				2275B06A20C5B22B003F28D3 /* Assets.xcassets in Resources */,
 				22F5FEA920E5890900841935 /* home.asterius.changetrack.updater.plist in Resources */,
 				2275B06D20C5B22B003F28D3 /* Main.storyboard in Resources */,
-				22ABD08820E6EEBF0039210F /* updater.app in Resources */,
-				22F5FEB620E58C2B00841935 /* changes-update in Resources */,
-				22ABD08B20E6EECD0039210F /* updater.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,13 +362,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2275B0BA20C721D7003F28D3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22ABD07720E6EE870039210F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -501,21 +406,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22ABD07520E6EE870039210F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22F5FEAA20E5896500841935 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22ABD07420E6E9AA0039210F /* changetrackdproto.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -528,11 +418,6 @@
 			isa = PBXTargetDependency;
 			target = 2275B07820C5B256003F28D3 /* changetrackd */;
 			targetProxy = 2275B0EC20C72769003F28D3 /* PBXContainerItemProxy */;
-		};
-		22ABD08A20E6EEBF0039210F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 22ABD07820E6EE870039210F /* updater */;
-			targetProxy = 22ABD08920E6EEBF0039210F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -788,60 +673,6 @@
 			};
 			name = Release;
 		};
-		22ABD08520E6EE870039210F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = updater/updater.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V3585DUGLZ;
-				INFOPLIST_FILE = updater/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.updater;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		22ABD08620E6EE870039210F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = updater/updater.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V3585DUGLZ;
-				INFOPLIST_FILE = updater/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.updater;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		22F5FEB320E5896500841935 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V3585DUGLZ;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		22F5FEB420E5896500841935 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V3585DUGLZ;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -877,24 +708,6 @@
 			buildConfigurations = (
 				2275B0D420C721D8003F28D3 /* Debug */,
 				2275B0D520C721D8003F28D3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		22ABD08420E6EE870039210F /* Build configuration list for PBXNativeTarget "updater" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				22ABD08520E6EE870039210F /* Debug */,
-				22ABD08620E6EE870039210F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		22F5FEB220E5896500841935 /* Build configuration list for PBXNativeTarget "changes-update" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				22F5FEB320E5896500841935 /* Debug */,
-				22F5FEB420E5896500841935 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
