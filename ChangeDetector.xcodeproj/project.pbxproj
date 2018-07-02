@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2207D45920C98BDF00961F77 /* filetypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45820C98BDF00961F77 /* filetypes.swift */; };
-		2207D45B20C998C500961F77 /* tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45A20C998C500961F77 /* tracker.swift */; };
 		2264240320C8568000D5DBF2 /* shared_defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240120C8561E00D5DBF2 /* shared_defaults.swift */; };
-		2264240720C875AC00D5DBF2 /* primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240620C875AC00D5DBF2 /* primitives.swift */; };
+		2272439D20EAB9BF009EF7E5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272439C20EAB9BF009EF7E5 /* main.swift */; };
+		227243A220EABA39009EF7E5 /* primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240620C875AC00D5DBF2 /* primitives.swift */; };
+		227243A320EABA49009EF7E5 /* filetypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45820C98BDF00961F77 /* filetypes.swift */; };
+		227243A420EABA4D009EF7E5 /* tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45A20C998C500961F77 /* tracker.swift */; };
+		227243A520EABA5C009EF7E5 /* storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225F20E034AF0077A9C2 /* storage.swift */; };
+		227243A620EABA5E009EF7E5 /* changestorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225D20E033F00077A9C2 /* changestorage.swift */; };
 		2275B06620C5B22B003F28D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06520C5B22B003F28D3 /* AppDelegate.swift */; };
 		2275B06820C5B22B003F28D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06720C5B22B003F28D3 /* ViewController.swift */; };
 		2275B06A20C5B22B003F28D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2275B06920C5B22B003F28D3 /* Assets.xcassets */; };
@@ -26,9 +29,6 @@
 		2275B0EB20C72769003F28D3 /* changetrackd.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 2275B07920C5B256003F28D3 /* changetrackd.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		22ABD07120E6E7090039210F /* xpcconn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B0A120C70BB6003F28D3 /* xpcconn.swift */; };
 		22C4225C20E033310077A9C2 /* detected-changes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225A20E033310077A9C2 /* detected-changes.xcdatamodeld */; };
-		22C4225E20E033F00077A9C2 /* changestorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225D20E033F00077A9C2 /* changestorage.swift */; };
-		22C4226020E034AF0077A9C2 /* storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225F20E034AF0077A9C2 /* storage.swift */; };
-		22F5FEA920E5890900841935 /* home.asterius.changetrack.updater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22F5FEA820E5890900841935 /* home.asterius.changetrack.updater.plist */; };
 		22F5FEB920E5905600841935 /* changetrackdproto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08C20C5B408003F28D3 /* changetrackdproto.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +50,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		2272439820EAB9BF009EF7E5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		2275B0D620C721D8003F28D3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,6 +89,9 @@
 		2264240120C8561E00D5DBF2 /* shared_defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shared_defaults.swift; sourceTree = "<group>"; };
 		2264240420C8755500D5DBF2 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
 		2264240620C875AC00D5DBF2 /* primitives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = primitives.swift; sourceTree = "<group>"; };
+		2272439A20EAB9BF009EF7E5 /* changetrackupdater */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = changetrackupdater; sourceTree = BUILT_PRODUCTS_DIR; };
+		2272439C20EAB9BF009EF7E5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		227243A120EAB9DE009EF7E5 /* changetrackupdater-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "changetrackupdater-Bridging-Header.h"; sourceTree = "<group>"; };
 		2275B06220C5B22B003F28D3 /* ChangeDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2275B06520C5B22B003F28D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2275B06720C5B22B003F28D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,10 +116,16 @@
 		22C4225B20E033310077A9C2 /* detected-changes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "detected-changes.xcdatamodel"; sourceTree = "<group>"; };
 		22C4225D20E033F00077A9C2 /* changestorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changestorage.swift; sourceTree = "<group>"; };
 		22C4225F20E034AF0077A9C2 /* storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storage.swift; sourceTree = "<group>"; };
-		22F5FEA820E5890900841935 /* home.asterius.changetrack.updater.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = home.asterius.changetrack.updater.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2272439720EAB9BF009EF7E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2275B05F20C5B22B003F28D3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -135,12 +153,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2272439B20EAB9BF009EF7E5 /* changetrackupdater */ = {
+			isa = PBXGroup;
+			children = (
+				2272439C20EAB9BF009EF7E5 /* main.swift */,
+				2207D45820C98BDF00961F77 /* filetypes.swift */,
+				2207D45A20C998C500961F77 /* tracker.swift */,
+				2264240620C875AC00D5DBF2 /* primitives.swift */,
+				227243A120EAB9DE009EF7E5 /* changetrackupdater-Bridging-Header.h */,
+			);
+			path = changetrackupdater;
+			sourceTree = "<group>";
+		};
 		2275B05920C5B22B003F28D3 = {
 			isa = PBXGroup;
 			children = (
 				2275B06420C5B22B003F28D3 /* ChangeDetector */,
 				2275B07A20C5B256003F28D3 /* changetrackd */,
 				2275B0BD20C721D8003F28D3 /* ChangeTracking */,
+				2272439B20EAB9BF009EF7E5 /* changetrackupdater */,
 				2275B06320C5B22B003F28D3 /* Products */,
 				2275B09C20C70729003F28D3 /* Frameworks */,
 			);
@@ -152,6 +183,7 @@
 				2275B06220C5B22B003F28D3 /* ChangeDetector.app */,
 				2275B07920C5B256003F28D3 /* changetrackd.xpc */,
 				2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */,
+				2272439A20EAB9BF009EF7E5 /* changetrackupdater */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,7 +191,6 @@
 		2275B06420C5B22B003F28D3 /* ChangeDetector */ = {
 			isa = PBXGroup;
 			children = (
-				22F5FEA820E5890900841935 /* home.asterius.changetrack.updater.plist */,
 				2275B06520C5B22B003F28D3 /* AppDelegate.swift */,
 				2275B06720C5B22B003F28D3 /* ViewController.swift */,
 				2275B06920C5B22B003F28D3 /* Assets.xcassets */,
@@ -180,12 +211,6 @@
 				2275B08A20C5B3AC003F28D3 /* main.swift */,
 				2275B08E20C5B48F003F28D3 /* changetrackdimpl.swift */,
 				2275B08920C5B3AC003F28D3 /* changetrackd-Bridging-Header.h */,
-				2264240620C875AC00D5DBF2 /* primitives.swift */,
-				2207D45820C98BDF00961F77 /* filetypes.swift */,
-				2207D45A20C998C500961F77 /* tracker.swift */,
-				22C4225A20E033310077A9C2 /* detected-changes.xcdatamodeld */,
-				22C4225D20E033F00077A9C2 /* changestorage.swift */,
-				22C4225F20E034AF0077A9C2 /* storage.swift */,
 			);
 			path = changetrackd;
 			sourceTree = "<group>";
@@ -206,6 +231,9 @@
 				2275B0BE20C721D8003F28D3 /* ChangeTracking.h */,
 				2275B09520C5CA0C003F28D3 /* DataTypes.swift */,
 				2264240120C8561E00D5DBF2 /* shared_defaults.swift */,
+				22C4225D20E033F00077A9C2 /* changestorage.swift */,
+				22C4225F20E034AF0077A9C2 /* storage.swift */,
+				22C4225A20E033310077A9C2 /* detected-changes.xcdatamodeld */,
 				2275B0BF20C721D8003F28D3 /* Info.plist */,
 			);
 			path = ChangeTracking;
@@ -225,6 +253,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		2272439920EAB9BF009EF7E5 /* changetrackupdater */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2272439E20EAB9BF009EF7E5 /* Build configuration list for PBXNativeTarget "changetrackupdater" */;
+			buildPhases = (
+				2272439620EAB9BF009EF7E5 /* Sources */,
+				2272439720EAB9BF009EF7E5 /* Frameworks */,
+				2272439820EAB9BF009EF7E5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = changetrackupdater;
+			productName = changetrackupdater;
+			productReference = 2272439A20EAB9BF009EF7E5 /* changetrackupdater */;
+			productType = "com.apple.product-type.tool";
+		};
 		2275B06120C5B22B003F28D3 /* ChangeDetector */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2275B07220C5B22B003F28D3 /* Build configuration list for PBXNativeTarget "ChangeDetector" */;
@@ -291,6 +336,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Tim Woodford";
 				TargetAttributes = {
+					2272439920EAB9BF009EF7E5 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					2275B06120C5B22B003F28D3 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
@@ -339,6 +388,7 @@
 				2275B06120C5B22B003F28D3 /* ChangeDetector */,
 				2275B07820C5B256003F28D3 /* changetrackd */,
 				2275B0BB20C721D7003F28D3 /* ChangeTracking */,
+				2272439920EAB9BF009EF7E5 /* changetrackupdater */,
 			);
 		};
 /* End PBXProject section */
@@ -349,7 +399,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2275B06A20C5B22B003F28D3 /* Assets.xcassets in Resources */,
-				22F5FEA920E5890900841935 /* home.asterius.changetrack.updater.plist in Resources */,
 				2275B06D20C5B22B003F28D3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +420,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2272439620EAB9BF009EF7E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				227243A420EABA4D009EF7E5 /* tracker.swift in Sources */,
+				227243A320EABA49009EF7E5 /* filetypes.swift in Sources */,
+				2272439D20EAB9BF009EF7E5 /* main.swift in Sources */,
+				227243A220EABA39009EF7E5 /* primitives.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2275B05E20C5B22B003F28D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,14 +445,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22C4226020E034AF0077A9C2 /* storage.swift in Sources */,
-				22C4225E20E033F00077A9C2 /* changestorage.swift in Sources */,
 				22C4225C20E033310077A9C2 /* detected-changes.xcdatamodeld in Sources */,
 				2275B08B20C5B3AC003F28D3 /* main.swift in Sources */,
-				2207D45B20C998C500961F77 /* tracker.swift in Sources */,
-				2207D45920C98BDF00961F77 /* filetypes.swift in Sources */,
 				2275B08F20C5B48F003F28D3 /* changetrackdimpl.swift in Sources */,
-				2264240720C875AC00D5DBF2 /* primitives.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +456,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2264240320C8568000D5DBF2 /* shared_defaults.swift in Sources */,
+				227243A620EABA5E009EF7E5 /* changestorage.swift in Sources */,
+				227243A520EABA5C009EF7E5 /* storage.swift in Sources */,
 				22F5FEB920E5905600841935 /* changetrackdproto.swift in Sources */,
 				2275B0DA20C721F9003F28D3 /* DataTypes.swift in Sources */,
 			);
@@ -433,6 +490,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2272439F20EAB9BF009EF7E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3585DUGLZ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "changetrackupdater/changetrackupdater-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		227243A020EAB9BF009EF7E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3585DUGLZ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "changetrackupdater/changetrackupdater-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		2275B07020C5B22B003F28D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -676,6 +755,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2272439E20EAB9BF009EF7E5 /* Build configuration list for PBXNativeTarget "changetrackupdater" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2272439F20EAB9BF009EF7E5 /* Debug */,
+				227243A020EAB9BF009EF7E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2275B05D20C5B22B003F28D3 /* Build configuration list for PBXProject "ChangeDetector" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

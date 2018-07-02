@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>changechecker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>changes-update.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -34,6 +39,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>changetrackupdater.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>libchangetrack.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -42,7 +52,7 @@
 		<key>updater.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
