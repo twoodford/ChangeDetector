@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		2264240320C8568000D5DBF2 /* shared_defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240120C8561E00D5DBF2 /* shared_defaults.swift */; };
 		2272439D20EAB9BF009EF7E5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272439C20EAB9BF009EF7E5 /* main.swift */; };
-		227243A220EABA39009EF7E5 /* primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240620C875AC00D5DBF2 /* primitives.swift */; };
-		227243A320EABA49009EF7E5 /* filetypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45820C98BDF00961F77 /* filetypes.swift */; };
-		227243A420EABA4D009EF7E5 /* tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45A20C998C500961F77 /* tracker.swift */; };
 		227243A520EABA5C009EF7E5 /* storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225F20E034AF0077A9C2 /* storage.swift */; };
 		227243A620EABA5E009EF7E5 /* changestorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225D20E033F00077A9C2 /* changestorage.swift */; };
+		227243A720EABCB2009EF7E5 /* detected-changes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225A20E033310077A9C2 /* detected-changes.xcdatamodeld */; };
+		227243A820EABFF7009EF7E5 /* filetypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45820C98BDF00961F77 /* filetypes.swift */; };
+		227243A920EABFF9009EF7E5 /* primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240620C875AC00D5DBF2 /* primitives.swift */; };
+		227243AA20EABFFC009EF7E5 /* tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45A20C998C500961F77 /* tracker.swift */; };
 		2275B06620C5B22B003F28D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06520C5B22B003F28D3 /* AppDelegate.swift */; };
 		2275B06820C5B22B003F28D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06720C5B22B003F28D3 /* ViewController.swift */; };
 		2275B06A20C5B22B003F28D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2275B06920C5B22B003F28D3 /* Assets.xcassets */; };
@@ -28,7 +29,6 @@
 		2275B0DB20C72262003F28D3 /* ChangeTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */; };
 		2275B0EB20C72769003F28D3 /* changetrackd.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 2275B07920C5B256003F28D3 /* changetrackd.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		22ABD07120E6E7090039210F /* xpcconn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B0A120C70BB6003F28D3 /* xpcconn.swift */; };
-		22C4225C20E033310077A9C2 /* detected-changes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225A20E033310077A9C2 /* detected-changes.xcdatamodeld */; };
 		22F5FEB920E5905600841935 /* changetrackdproto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08C20C5B408003F28D3 /* changetrackdproto.swift */; };
 /* End PBXBuildFile section */
 
@@ -424,10 +424,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				227243A420EABA4D009EF7E5 /* tracker.swift in Sources */,
-				227243A320EABA49009EF7E5 /* filetypes.swift in Sources */,
+				227243AA20EABFFC009EF7E5 /* tracker.swift in Sources */,
+				227243A920EABFF9009EF7E5 /* primitives.swift in Sources */,
 				2272439D20EAB9BF009EF7E5 /* main.swift in Sources */,
-				227243A220EABA39009EF7E5 /* primitives.swift in Sources */,
+				227243A820EABFF7009EF7E5 /* filetypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +445,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22C4225C20E033310077A9C2 /* detected-changes.xcdatamodeld in Sources */,
 				2275B08B20C5B3AC003F28D3 /* main.swift in Sources */,
 				2275B08F20C5B48F003F28D3 /* changetrackdimpl.swift in Sources */,
 			);
@@ -458,6 +457,7 @@
 				2264240320C8568000D5DBF2 /* shared_defaults.swift in Sources */,
 				227243A620EABA5E009EF7E5 /* changestorage.swift in Sources */,
 				227243A520EABA5C009EF7E5 /* storage.swift in Sources */,
+				227243A720EABCB2009EF7E5 /* detected-changes.xcdatamodeld in Sources */,
 				22F5FEB920E5905600841935 /* changetrackdproto.swift in Sources */,
 				2275B0DA20C721F9003F28D3 /* DataTypes.swift in Sources */,
 			);
@@ -495,7 +495,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3585DUGLZ;
+				LD_RUNPATH_SEARCH_PATHS = ChangeTracking.framework/Versions/A/Frameworks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "changetrackupdater/changetrackupdater-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
@@ -506,7 +509,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3585DUGLZ;
+				LD_RUNPATH_SEARCH_PATHS = ChangeTracking.framework/Versions/A/Frameworks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "changetrackupdater/changetrackupdater-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
@@ -705,6 +711,7 @@
 		2275B0D420C721D8003F28D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -730,6 +737,7 @@
 		2275B0D520C721D8003F28D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
