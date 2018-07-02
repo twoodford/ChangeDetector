@@ -34,7 +34,6 @@
 
 
 import Foundation
-import ChangeTracking
 
 class XPCServiceDelegate : NSObject, NSXPCListenerDelegate {
     func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
@@ -54,6 +53,6 @@ tt.didChange()
 
 // Create the listener and resume it:
 let delegate = XPCServiceDelegate()
-let listener = NSXPCListener.init(machServiceName: "home.asterius.changetrackd")
+let listener = NSXPCListener.service()
 listener.delegate = delegate;
 listener.resume()
