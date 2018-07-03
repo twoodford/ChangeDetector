@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import ChangeTracking
 
 // Do not access directly for thread safety reasons
 let _change_storage = ChangeStorage(storageURL: STORAGE_FILE_URL.appendingPathComponent("changes.sqlite3"))
@@ -21,7 +20,7 @@ public class ChangeStorage {
     let parent: ChangeStorage?
     init(storageURL: URL) {
         // Mostly copied from Apple's "Making Core Data Your Model Layer" document
-        guard let modelURL = Bundle.main.url(forResource: "detected-changes", withExtension: "momd") else {
+        guard let modelURL = Bundle(for: ChangeStorage.self).url(forResource: "detected-changes", withExtension: "momd") else {
             fatalError("failed to find data model")
         }
         guard let mom = NSManagedObjectModel(contentsOf: modelURL) else {
