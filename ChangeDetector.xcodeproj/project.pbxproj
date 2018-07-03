@@ -15,6 +15,9 @@
 		227243A820EABFF7009EF7E5 /* filetypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45820C98BDF00961F77 /* filetypes.swift */; };
 		227243A920EABFF9009EF7E5 /* primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240620C875AC00D5DBF2 /* primitives.swift */; };
 		227243AA20EABFFC009EF7E5 /* tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207D45A20C998C500961F77 /* tracker.swift */; };
+		227243AE20EAED42009EF7E5 /* home.asterius.changetrackd.updater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 227243AD20EAED42009EF7E5 /* home.asterius.changetrackd.updater.plist */; };
+		227243B020EAF3AA009EF7E5 /* launchd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227243AF20EAF3AA009EF7E5 /* launchd.swift */; };
+		227243B120EB0540009EF7E5 /* changetrackupdater in Resources */ = {isa = PBXBuildFile; fileRef = 2272439A20EAB9BF009EF7E5 /* changetrackupdater */; };
 		2275B06620C5B22B003F28D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06520C5B22B003F28D3 /* AppDelegate.swift */; };
 		2275B06820C5B22B003F28D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06720C5B22B003F28D3 /* ViewController.swift */; };
 		2275B06A20C5B22B003F28D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2275B06920C5B22B003F28D3 /* Assets.xcassets */; };
@@ -92,6 +95,8 @@
 		2272439A20EAB9BF009EF7E5 /* changetrackupdater */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = changetrackupdater; sourceTree = BUILT_PRODUCTS_DIR; };
 		2272439C20EAB9BF009EF7E5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		227243A120EAB9DE009EF7E5 /* changetrackupdater-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "changetrackupdater-Bridging-Header.h"; sourceTree = "<group>"; };
+		227243AD20EAED42009EF7E5 /* home.asterius.changetrackd.updater.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = home.asterius.changetrackd.updater.plist; sourceTree = "<group>"; };
+		227243AF20EAF3AA009EF7E5 /* launchd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launchd.swift; sourceTree = "<group>"; };
 		2275B06220C5B22B003F28D3 /* ChangeDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2275B06520C5B22B003F28D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2275B06720C5B22B003F28D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +216,8 @@
 				2275B08A20C5B3AC003F28D3 /* main.swift */,
 				2275B08E20C5B48F003F28D3 /* changetrackdimpl.swift */,
 				2275B08920C5B3AC003F28D3 /* changetrackd-Bridging-Header.h */,
+				227243AD20EAED42009EF7E5 /* home.asterius.changetrackd.updater.plist */,
+				227243AF20EAF3AA009EF7E5 /* launchd.swift */,
 			);
 			path = changetrackd;
 			sourceTree = "<group>";
@@ -407,6 +414,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227243B120EB0540009EF7E5 /* changetrackupdater in Resources */,
+				227243AE20EAED42009EF7E5 /* home.asterius.changetrackd.updater.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +456,7 @@
 			files = (
 				2275B08B20C5B3AC003F28D3 /* main.swift in Sources */,
 				2275B08F20C5B48F003F28D3 /* changetrackdimpl.swift in Sources */,
+				227243B020EAF3AA009EF7E5 /* launchd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,7 +505,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3585DUGLZ;
-				LD_RUNPATH_SEARCH_PATHS = ChangeTracking.framework/Versions/A/Frameworks;
+				LD_RUNPATH_SEARCH_PATHS = "ChangeTracking.framework/Versions/A/Frameworks @loader_path/../../../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
 				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
@@ -509,7 +519,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3585DUGLZ;
-				LD_RUNPATH_SEARCH_PATHS = ChangeTracking.framework/Versions/A/Frameworks;
+				LD_RUNPATH_SEARCH_PATHS = "ChangeTracking.framework/Versions/A/Frameworks @loader_path/../../../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
 				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;

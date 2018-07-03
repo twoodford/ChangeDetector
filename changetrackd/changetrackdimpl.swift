@@ -12,11 +12,11 @@ import ChangeTracking
 class changetrackdimpl: NSObject, changetrackdproto {
 
     let ddefaults = ChangeDefaults()
-    let tracker = Tracker()
+//    let tracker = Tracker()
     
     override init() {
         super.init()
-        tracker.scheduleUpdater(delaySeconds: 4)
+//        tracker.scheduleUpdater(delaySeconds: 4)
     }
     
     func setPaths(urls: [String], uuids: [String]) {
@@ -32,26 +32,24 @@ class changetrackdimpl: NSObject, changetrackdproto {
     }
     
     func setPaths(_ paths: [TrackedURL]) {
-        // TODO
-        print("TODO Lazy-loading actual implementation ;)")
-        let prevPaths = ddefaults.getPaths()
-        for path in paths {
-            print(path.urlString())
-            if !prevPaths.contains { element in return path.isEqual(to: element) } {
-                print("added")
-                tracker.addPath(path: path)
-            }
-        }
+//        let prevPaths = ddefaults.getPaths()
+//        for path in paths {
+//            print(path.urlString())
+//            if !prevPaths.contains { element in return path.isEqual(to: element) } {
+//                print("added")
+//                tracker.addPath(path: path)
+//            }
+//        }
         ddefaults.setPaths(paths);
     }
     
     func getChanges(forUUID: String, handler: ([String],[String])->Void) {
-        let changes = tracker.changes[UUID(uuidString: forUUID)!]!
-        let paths = changes.map({(cdescription) in
-            return cdescription.filePath
-        })
-        let descriptions = changes.map({(cdescription) in return cdescription.info})
-        handler(paths, descriptions)
+//        let changes = getChangeStore().getChanges(forUUID: UUID(uuidString: forUUID)!)
+//        let paths = changes.map({(cdescription) in
+//            return cdescription.filePath
+//        })
+//        let descriptions = changes.map({(cdescription) in return cdescription.info})
+//        handler(paths, descriptions)
     }
     
     func warm() {
@@ -59,10 +57,10 @@ class changetrackdimpl: NSObject, changetrackdproto {
     }
     
     func update(completionHandler: ()->Void)  {
-        let dispatcher = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
-        dispatcher.async {
-            self.tracker.changeCheck()
-        }
+//        let dispatcher = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+//        dispatcher.async {
+//            self.tracker.changeCheck()
+//        }
         completionHandler()
     }
 }

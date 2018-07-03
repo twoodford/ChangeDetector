@@ -12,11 +12,11 @@ import ChangeTracking
 // Do not access directly for thread safety reasons
 let _change_storage = ChangeStorage(storageURL: STORAGE_FILE_URL.appendingPathComponent("changes.sqlite3"))
 
-func getChangeStore() -> ChangeStorage {
+public func getChangeStore() -> ChangeStorage {
     return ChangeStorage(parent: _change_storage)
 }
 
-class ChangeStorage {
+public class ChangeStorage {
     let moc: NSManagedObjectContext
     let parent: ChangeStorage?
     init(storageURL: URL) {
