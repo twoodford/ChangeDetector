@@ -34,6 +34,7 @@
 
 
 import Foundation
+import ChangeTracking
 
 class XPCServiceDelegate : NSObject, NSXPCListenerDelegate {
     func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
@@ -45,11 +46,14 @@ class XPCServiceDelegate : NSObject, NSXPCListenerDelegate {
     }
 }
 
-// test
-let tt = DirectoryTracker()
-let ttt = URL(string: "file:///Users/tim/Public")!
-tt.setTrackData(baseURL: ttt, dat: [String:String]())
-tt.didChange()
+let dispatcher = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+dispatcher.async {
+    do {
+        try writeLaunchdFile()
+    } catch {
+        print("couldn't write launchd file")
+    }
+}
 
 // Create the listener and resume it:
 let delegate = XPCServiceDelegate()
