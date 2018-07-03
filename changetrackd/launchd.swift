@@ -8,9 +8,13 @@
 
 import Cocoa
 
+func getUpdaterPath() -> String {
+    return Bundle.main.resourcePath!+"/changetrackupdater"
+}
+
 func writeLaunchdFile() throws {
     let fname = "home.asterius.changetrackd.updater.plist"
-    let executablePath = Bundle.main.resourcePath!+"/changetrackupdater"
+    let executablePath = getUpdaterPath()
     let inPlistPath = Bundle.main.resourcePath!+"/"+fname
     let plistIn = try String(contentsOfFile: inPlistPath)
     let plistOut = String(format: plistIn, executablePath)

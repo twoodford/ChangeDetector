@@ -44,23 +44,28 @@ class changetrackdimpl: NSObject, changetrackdproto {
     }
     
     func getChanges(forUUID: String, handler: ([String],[String])->Void) {
-//        let changes = getChangeStore().getChanges(forUUID: UUID(uuidString: forUUID)!)
-//        let paths = changes.map({(cdescription) in
-//            return cdescription.filePath
-//        })
-//        let descriptions = changes.map({(cdescription) in return cdescription.info})
-//        handler(paths, descriptions)
+        let changes = getChangeStore().getChanges(forUUID: UUID(uuidString: forUUID)!)
+        let paths = changes.map({(cdescription) in
+            return cdescription.filePath
+        })
+        let descriptions = changes.map({(cdescription) in return cdescription.info})
+        handler(paths, descriptions)
     }
     
     func warm() {
         NSLog("daemon force-started")
     }
     
-    func update(completionHandler: ()->Void)  {
-//        let dispatcher = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
-//        dispatcher.async {
-//            self.tracker.changeCheck()
-//        }
-        completionHandler()
+    func update(completionHandler: @escaping ()->Void)  {
+        let dispatcher = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+        dispatcher.async {
+            let proc = Process()
+//            proc.launchPath = "/bin/launchctl"
+//            proc.arguments = ["start", "home.asterius.changetrackd.updater"]
+            proc.launchPath = getUpdaterPath()
+            proc.launch()
+            proc.waitUntilExit()
+            completionHandler()
+        }
     }
 }

@@ -49,7 +49,7 @@ class changetrackdconn {
         connection.warm()
     }
     
-    func update(completionHandler: ()->Void) {
+    func update(completionHandler: @escaping ()->Void) {
         let connection = self._backend.remoteObjectProxyWithErrorHandler {
             (error) in print("remote proxy error: %@", error)
             } as! changetrackdproto

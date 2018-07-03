@@ -12,5 +12,5 @@ import Foundation
     func setPaths(urls: [String], uuids: [String])
     func getChanges(forUUID: String, handler: ([String],[String])->Void)
     func warm() // Dummy function to get the daemon started
-    func update(completionHandler: ()->Void)  // Force an update
+    func update(completionHandler: @escaping ()->Void)  // Force an update
 }
