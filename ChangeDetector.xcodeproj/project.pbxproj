@@ -18,6 +18,7 @@
 		227243AE20EAED42009EF7E5 /* home.asterius.changetrackd.updater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 227243AD20EAED42009EF7E5 /* home.asterius.changetrackd.updater.plist */; };
 		227243B020EAF3AA009EF7E5 /* launchd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227243AF20EAF3AA009EF7E5 /* launchd.swift */; };
 		227243B120EB0540009EF7E5 /* changetrackupdater in Resources */ = {isa = PBXBuildFile; fileRef = 2272439A20EAB9BF009EF7E5 /* changetrackupdater */; };
+		227243C520EB1D17009EF7E5 /* flock.c in Sources */ = {isa = PBXBuildFile; fileRef = 227243C420EB1D17009EF7E5 /* flock.c */; };
 		2275B06620C5B22B003F28D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06520C5B22B003F28D3 /* AppDelegate.swift */; };
 		2275B06820C5B22B003F28D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B06720C5B22B003F28D3 /* ViewController.swift */; };
 		2275B06A20C5B22B003F28D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2275B06920C5B22B003F28D3 /* Assets.xcassets */; };
@@ -97,6 +98,8 @@
 		227243A120EAB9DE009EF7E5 /* changetrackupdater-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "changetrackupdater-Bridging-Header.h"; sourceTree = "<group>"; };
 		227243AD20EAED42009EF7E5 /* home.asterius.changetrackd.updater.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = home.asterius.changetrackd.updater.plist; sourceTree = "<group>"; };
 		227243AF20EAF3AA009EF7E5 /* launchd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launchd.swift; sourceTree = "<group>"; };
+		227243C320EB1D17009EF7E5 /* flock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = flock.h; sourceTree = "<group>"; };
+		227243C420EB1D17009EF7E5 /* flock.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = flock.c; sourceTree = "<group>"; };
 		2275B06220C5B22B003F28D3 /* ChangeDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2275B06520C5B22B003F28D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2275B06720C5B22B003F28D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				2207D45A20C998C500961F77 /* tracker.swift */,
 				2264240620C875AC00D5DBF2 /* primitives.swift */,
 				227243A120EAB9DE009EF7E5 /* changetrackupdater-Bridging-Header.h */,
+				227243C320EB1D17009EF7E5 /* flock.h */,
+				227243C420EB1D17009EF7E5 /* flock.c */,
 			);
 			path = changetrackupdater;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 				227243A920EABFF9009EF7E5 /* primitives.swift in Sources */,
 				2272439D20EAB9BF009EF7E5 /* main.swift in Sources */,
 				227243A820EABFF7009EF7E5 /* filetypes.swift in Sources */,
+				227243C520EB1D17009EF7E5 /* flock.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +744,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeTracking;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -764,6 +771,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = home.asterius.ChangeTracking;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
