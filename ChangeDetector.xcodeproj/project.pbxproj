@@ -37,6 +37,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		226CE98920EC1B9D00832D3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2275B05A20C5B22B003F28D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2272439920EAB9BF009EF7E5;
+			remoteInfo = changetrackupdater;
+		};
+		226CE98B20EC1C8B00832D3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2275B05A20C5B22B003F28D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2272439920EAB9BF009EF7E5;
+			remoteInfo = changetrackupdater;
+		};
+		226CE98D20EC1C9200832D3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2275B05A20C5B22B003F28D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2275B0BB20C721D7003F28D3;
+			remoteInfo = ChangeTracking;
+		};
 		2275B0CF20C721D8003F28D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2275B05A20C5B22B003F28D3 /* Project object */;
@@ -295,6 +316,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				226CE98A20EC1B9D00832D3C /* PBXTargetDependency */,
 				2275B0D020C721D8003F28D3 /* PBXTargetDependency */,
 				2275B0ED20C72769003F28D3 /* PBXTargetDependency */,
 			);
@@ -314,6 +336,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				226CE98E20EC1C9200832D3C /* PBXTargetDependency */,
+				226CE98C20EC1C8B00832D3C /* PBXTargetDependency */,
 			);
 			name = changetrackd;
 			productName = changetrackd;
@@ -482,6 +506,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		226CE98A20EC1B9D00832D3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2272439920EAB9BF009EF7E5 /* changetrackupdater */;
+			targetProxy = 226CE98920EC1B9D00832D3C /* PBXContainerItemProxy */;
+		};
+		226CE98C20EC1C8B00832D3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2272439920EAB9BF009EF7E5 /* changetrackupdater */;
+			targetProxy = 226CE98B20EC1C8B00832D3C /* PBXContainerItemProxy */;
+		};
+		226CE98E20EC1C9200832D3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2275B0BB20C721D7003F28D3 /* ChangeTracking */;
+			targetProxy = 226CE98D20EC1C9200832D3C /* PBXContainerItemProxy */;
+		};
 		2275B0D020C721D8003F28D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2275B0BB20C721D7003F28D3 /* ChangeTracking */;
