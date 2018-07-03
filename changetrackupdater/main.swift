@@ -7,6 +7,21 @@
 //
 
 import Foundation
+import ChangeTracking
 
-print("Hello, World!")
+let fh = try! FileHandle(forWritingTo: STORAGE_FILE_URL.appendingPathComponent("updater.lock"))
 
+if check_lock_file(fh.fileDescriptor) != 0 {
+    NSLog("Exiting due to existing file lock")
+    exit(EXIT_SUCCESS) // someone else is already running
+}
+
+let tracker = Tracker()
+tracker.changeCheck()
+
+sleep(200)
+
+__osaSendNotification(withText: "testing testing testing")
+
+unlock_file(fh.fileDescriptor)
+fh.closeFile()
