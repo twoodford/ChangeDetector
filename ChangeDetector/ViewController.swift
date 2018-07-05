@@ -95,4 +95,10 @@ class WindowController: NSWindowController {
             }
         }
     }
+    
+    @IBAction func forceUpdate(sender: NSToolbarItem) {
+        xpcconn.update {
+            // nothing for now
+        }
+    }
 }
