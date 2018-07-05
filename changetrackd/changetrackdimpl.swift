@@ -10,13 +10,13 @@ import Foundation
 import ChangeTracking
 
 class changetrackdimpl: NSObject, changetrackdproto {
-
+    
     let ddefaults = ChangeDefaults()
-//    let tracker = Tracker()
+    //    let tracker = Tracker()
     
     override init() {
         super.init()
-//        tracker.scheduleUpdater(delaySeconds: 4)
+        //        tracker.scheduleUpdater(delaySeconds: 4)
     }
     
     func setPaths(urls: [String], uuids: [String]) {
@@ -32,15 +32,19 @@ class changetrackdimpl: NSObject, changetrackdproto {
     }
     
     func setPaths(_ paths: [TrackedURL]) {
-//        let prevPaths = ddefaults.getPaths()
-//        for path in paths {
-//            print(path.urlString())
-//            if !prevPaths.contains { element in return path.isEqual(to: element) } {
-//                print("added")
-//                tracker.addPath(path: path)
-//            }
-//        }
+        let prevPaths = ddefaults.getPaths()
         ddefaults.setPaths(paths);
+        for path in paths {
+            print(path.urlString())
+            if !prevPaths.contains { element in return path.isEqual(to: element) } {
+                print("added")
+                let proc = Process()
+                proc.launchPath = getUpdaterPath()
+                proc.arguments = [ path.id.uuidString ]
+                proc.launch()
+                proc.waitUntilExit()
+            }
+        }
     }
     
     func getChanges(forUUID: String, handler: ([String],[String])->Void) {
@@ -60,8 +64,6 @@ class changetrackdimpl: NSObject, changetrackdproto {
         let dispatcher = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
         dispatcher.async {
             let proc = Process()
-//            proc.launchPath = "/bin/launchctl"
-//            proc.arguments = ["start", "home.asterius.changetrackd.updater"]
             proc.launchPath = getUpdaterPath()
             proc.launch()
             proc.waitUntilExit()
