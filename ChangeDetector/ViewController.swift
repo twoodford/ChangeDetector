@@ -40,7 +40,7 @@ class ViewController: NSViewController {
         if URLTable.clickedRow < 0 {
             return // Nothing's actually selected
         }
-        let selPath = appDelegate.ddefaults.getPaths()[URLTable.clickedRow]
+        let selPath = (URLArrayController.arrangedObjects as! [TrackedURL])[URLTable.clickedRow]
         xpcconn.getChanges(forUUID: selPath.id, handler: {(paths, description) in
             var changes: [ChangeDescription] = []
             for i in 0..<paths.count {
@@ -93,6 +93,12 @@ class WindowController: NSWindowController {
                 appDelegate.URLArrayController?.remove(atArrangedObjectIndex: row)
                 self.xpcconn.updateURLs(list: self.appDelegate.urlLst)
             }
+        }
+    }
+    
+    @IBAction func forceUpdate(sender: NSToolbarItem) {
+        xpcconn.update {
+            // nothing for now
         }
     }
 }
