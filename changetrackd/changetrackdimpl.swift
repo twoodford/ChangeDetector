@@ -45,6 +45,12 @@ class changetrackdimpl: NSObject, changetrackdproto {
                 proc.waitUntilExit()
             }
         }
+        for path in prevPaths {
+            if !paths.contains { element in return path.isEqual(to: element) } {
+                print("removed", path.urlStr)
+                try! FileManager.default.removeItem(at: STORAGE_FILE_URL.appendingPathComponent(path.id.uuidString))
+            }
+        }
     }
     
     func getChanges(forUUID: String, handler: ([String],[String])->Void) {
