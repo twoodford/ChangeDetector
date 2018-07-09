@@ -10,16 +10,16 @@ import Foundation
 import ChangeTracking
 
 func __osaSendNotification(withText text: String) {
-//    print("testing")
-//    if let osaObj = NSAppleScript(source: "display notification \""+text+"\" with title \"ChangeDetector\"") {
-//        var error: NSDictionary?
-//        osaObj.executeAndReturnError(&error)
-//        if error != nil {
-//            print("OSAScript error: ", error)
-//        }
-//    } else {
-//        print("syntax error")
-//    }
+    //    print("testing")
+    //    if let osaObj = NSAppleScript(source: "display notification \""+text+"\" with title \"ChangeDetector\"") {
+    //        var error: NSDictionary?
+    //        osaObj.executeAndReturnError(&error)
+    //        if error != nil {
+    //            print("OSAScript error: ", error)
+    //        }
+    //    } else {
+    //        print("syntax error")
+    //    }
     let task = Process()
     task.launchPath="/usr/bin/osascript"
     task.arguments = ["-e", "display notification \""+text+"\" with title \"ChangeDetector\""]
@@ -61,21 +61,18 @@ class Tracker {
     }
     
     func addPath(path: TrackedURL) {
-        let dispatcher = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
-        dispatcher.async {
-            let datURL = self.filePath(forUUID: path.id)
-            let trackerType = changeTrackerType(forFile: path.url)
-            let tracker = getTracker(trackerID: trackerType)!
-            tracker.setTrackData(baseURL: path.url, dat: [])
-            let _ = tracker.didChange()
-            try! self.trackerData(tracker: tracker, trackerType: trackerType).write(to: datURL)
-        }
+        let datURL = self.filePath(forUUID: path.id)
+        let trackerType = changeTrackerType(forFile: path.url)
+        let tracker = getTracker(trackerID: trackerType)!
+        tracker.setTrackData(baseURL: path.url, dat: [])
+        let _ = tracker.didChange()
+        try! self.trackerData(tracker: tracker, trackerType: trackerType).write(to: datURL)
     }
     
     func sendChangeNotification() {
-//        let nreq = NSUserNotification()
-//        nreq.informativeText = "New file changes detected"
-//        NSUserNotificationCenter.default.deliver(nreq)
+        //        let nreq = NSUserNotification()
+        //        nreq.informativeText = "New file changes detected"
+        //        NSUserNotificationCenter.default.deliver(nreq)
         __osaSendNotification(withText: "New file changes detected")
     }
     
