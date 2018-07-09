@@ -39,7 +39,6 @@ class Tracker {
         for path in paths {
             changes[path.id] = changeStore.getChanges(forUUID: path.id)
         }
-        scheduleUpdater(delaySeconds: 0)
     }
     
     public func scheduleUpdater(delaySeconds: Int) {
@@ -89,7 +88,8 @@ class Tracker {
         var newChanges = false
         let paths = defaults.getPaths()
         for path in paths {
-            newChanges = newChanges || changeCheck(path: path)
+            let addChanges = changeCheck(path: path)
+            newChanges = newChanges || addChanges
         }
         if newChanges {
             sendChangeNotification()
