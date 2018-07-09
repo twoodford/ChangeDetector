@@ -28,9 +28,20 @@ public class ChangeDefaults {
             for (uuidstr, bookmark) in pathDefault {
                 let uuid = UUID(uuidString: uuidstr)!
                 var isStale: Bool = false
-                let url = try! URL(resolvingBookmarkData: bookmark, options: [], relativeTo: nil, bookmarkDataIsStale: &isStale)
-                //URL.BookmarkResolutionOptions.withSecurityScope
-                paths.append(TrackedURL(trackURL: url!, uuid: uuid))
+                do {
+                    let url = try URL(resolvingBookmarkData: bookmark, options: [], relativeTo: nil, bookmarkDataIsStale: &isStale)
+                    //URL.BookmarkResolutionOptions.withSecurityScope
+                    paths.append(TrackedURL(trackURL: url!, uuid: uuid))
+                } catch {
+                    // Send notification
+                    let notif = NSUserNotification()
+                    notif.title = "ChangeDetector Error"
+                    notif.informativeText = "One of the tracked URLs disappeared"
+                    NSUserNotificationCenter.default.deliver(notif)
+                    print("Missing URL", uuidstr)
+                    // Make it so the user can manually remove item??
+                    //paths.append(TrackedURL()
+                }
             }
             return paths
         } else {

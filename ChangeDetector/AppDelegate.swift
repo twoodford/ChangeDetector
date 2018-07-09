@@ -18,17 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let ddefaults = ChangeDefaults()
     
     override init() {
+        try! FileManager.default.createDirectory(at: STORAGE_FILE_URL, withIntermediateDirectories: true, attributes: nil)
         urlLst = ddefaults.getPaths()
         super.init();
-//        let x = TrackedURL(trackURL: URL(string: "/Users/Shared")!)
-//        let dat = NSMutableData(length: 256)!
-//        let z1 = NSKeyedArchiver(forWritingWith: dat)
-//        x.encode(with: z1)
-//        let z2 = NSKeyedUnarchiver(forReadingWith: dat as Data)
-//        let y = TrackedURL(coder: z2)!
-//        print(y.urlStr)
-//        print(y.url)
-//        print(y.id)
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
