@@ -78,8 +78,7 @@ public class ChangeStorage {
         let changes = getChanges(forUUID: uuid)
         var ret: [ChangeDescription] = []
         for change in changes {
-            let chObj = change as! DetectedChange
-            ret.append(ChangeDescription(path: chObj.path!.absoluteString, extraInfo: chObj.chDescription!))
+            ret.append(ChangeDescription(path: change.path!.absoluteString, extraInfo: change.chDescription!))
         }
         return ret
     }
