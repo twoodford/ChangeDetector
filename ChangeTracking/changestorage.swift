@@ -75,17 +75,7 @@ public class ChangeStorage {
     }
     
     public func getChangeDescriptions(forUUID uuid: UUID) -> [ChangeDescription] {
-        var changes: [Any] = []
-        moc.performAndWait {
-            do {
-                let baseURL = try _getBaseURL(forUUID: uuid)
-                if baseURL != nil {
-                    changes = (baseURL!.value(forKey: "changes") as! NSOrderedSet).array
-                }
-            } catch {
-                fatalError("Couldn't fetch BaseURL")
-            }
-        }
+        let changes = getChanges(forUUID: uuid)
         var ret: [ChangeDescription] = []
         for change in changes {
             let chObj = change as! DetectedChange
