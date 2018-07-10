@@ -114,16 +114,10 @@ public class ChangeStorage {
         }
     }
     
-    public func removeChange(object index: Int, uuid: UUID) {
+    public func removeChange(object obj: DetectedChange) {
         moc.performAndWait {
-            do {
-                let baseURL = try _getBaseURL(forUUID: uuid)!
-                let delta = baseURL.changes![index] as! NSManagedObject
-                baseURL.removeFromChanges(at: index)
-                moc.delete(delta)
-            } catch {
-                fatalError("Couldn't add change")
-            }
+            obj.baseURL!.removeFromChanges(obj)
+            moc.delete(obj)
         }
     }
     

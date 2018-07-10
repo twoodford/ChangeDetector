@@ -14,6 +14,7 @@ class ViewController: NSViewController {
     @IBOutlet var URLArrayController: NSArrayController!;
     @IBOutlet var ChangesArrayController: NSArrayController!;
     @IBOutlet var URLTable: NSTableView!;
+    @IBOutlet var ChangesTable: NSTableView!;
     @objc dynamic var changeList: [ChangeDescription] = []
     
     @objc var appDelegate = NSApplication.shared.delegate! as! AppDelegate
@@ -24,8 +25,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        appDelegate.URLArrayController = URLArrayController
-        appDelegate.URLTable = URLTable
+        appDelegate.viewController = self
         
         xpcconn.warm() // warm up xpc
     }
@@ -42,7 +42,11 @@ class ViewController: NSViewController {
             return // Nothing's actually selected
         }
         
-        let selPath = (URLArrayController.arrangedObjects as! [TrackedURL])[URLTable.clickedRow]
+        refreshChangesTable(URLRow: URLTable.clickedRow)
+    }
+    
+    func refreshChangesTable(URLRow: Int) {
+        let selPath = (URLArrayController.arrangedObjects as! [TrackedURL])[URLRow]
         
         let changes = changeStore.getChanges(forUUID: selPath.id)
         
@@ -52,7 +56,6 @@ class ViewController: NSViewController {
         
         // Add new paths
         self.ChangesArrayController.add(contentsOf: changes)
-        
     }
 }
 
@@ -79,9 +82,9 @@ class WindowController: NSWindowController {
     }
     
     @IBAction func removeURL(sender: NSToolbarItem) {
-        if let row = appDelegate.URLTable?.selectedRow {
+        if let row = appDelegate.viewController?.URLTable?.selectedRow {
             if row >= 0 {
-                appDelegate.URLArrayController?.remove(atArrangedObjectIndex: row)
+                appDelegate.viewController?.URLArrayController?.remove(atArrangedObjectIndex: row)
                 self.xpcconn.updateURLs(list: self.appDelegate.urlLst)
             }
         }
