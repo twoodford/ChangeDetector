@@ -9,6 +9,8 @@
 import Foundation
 import ChangeTracking
 
+// Make sure file exists
+try! "".write(to: STORAGE_FILE_URL.appendingPathComponent("updater.lock"), atomically: false, encoding: .utf8)
 let fh = try! FileHandle(forWritingTo: STORAGE_FILE_URL.appendingPathComponent("updater.lock"))
 
 let addMode = CommandLine.arguments.count > 1
