@@ -593,7 +593,7 @@
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
                                                                             <connections>
-                                                                                <binding destination="o0j-hr-bgB" name="value" keyPath="objectValue.pathStr" id="NQe-Bv-bAs"/>
+                                                                                <binding destination="o0j-hr-bgB" name="value" keyPath="objectValue.path" id="Odf-6g-8D5"/>
                                                                             </connections>
                                                                         </textField>
                                                                     </subviews>
@@ -629,7 +629,7 @@
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
                                                                             <connections>
-                                                                                <binding destination="ksh-et-5l6" name="value" keyPath="objectValue.descriptionStr" id="8cA-tC-L7J"/>
+                                                                                <binding destination="ksh-et-5l6" name="value" keyPath="objectValue.chDescription" id="o3c-72-J3a"/>
                                                                             </connections>
                                                                         </textField>
                                                                     </subviews>
@@ -681,7 +681,7 @@
                         <binding destination="XfG-lQ-9wD" name="contentArray" keyPath="self.appDelegate.urlLst" id="6cH-sb-DFz"/>
                     </connections>
                 </arrayController>
-                <arrayController id="eSa-N3-nJd">
+                <arrayController avoidsEmptySelection="NO" id="eSa-N3-nJd">
                     <connections>
                         <binding destination="XfG-lQ-9wD" name="contentArray" keyPath="self.changeList" id="Rcv-Qt-aC7"/>
                     </connections>

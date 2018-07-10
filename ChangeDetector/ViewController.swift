@@ -19,6 +19,7 @@ class ViewController: NSViewController {
     @objc var appDelegate = NSApplication.shared.delegate! as! AppDelegate
     
     let xpcconn = changetrackdconn()
+    let changeStore = getChangeStore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,28 +41,18 @@ class ViewController: NSViewController {
         if URLTable.clickedRow < 0 {
             return // Nothing's actually selected
         }
+        
         let selPath = (URLArrayController.arrangedObjects as! [TrackedURL])[URLTable.clickedRow]
-        xpcconn.getChanges(forUUID: selPath.id, handler: {(paths, description) in
-            var changes: [ChangeDescription] = []
-            for i in 0..<paths.count {
-                changes.append(ChangeDescription(path: paths[i], extraInfo: description[i]))
-                print(description[i])
-            }
-            DispatchQueue.main.async {
-                print("main thread")
-                
-                for x in changes {
-                    print(x.filePath)
-                }
-                
-                // Clear previous
-                let len = (self.ChangesArrayController.arrangedObjects as! [ChangeDescription]).count
-                self.ChangesArrayController.remove(atArrangedObjectIndexes: IndexSet(integersIn: 0..<len))
-                
-                // Add new paths
-                self.ChangesArrayController.add(contentsOf: changes)
-            }
-        })
+        
+        let changes = changeStore.getChanges(forUUID: selPath.id)
+        
+        // Clear previous
+        let len = (self.ChangesArrayController.arrangedObjects as! [ChangeDescription]).count
+        self.ChangesArrayController.remove(atArrangedObjectIndexes: IndexSet(integersIn: 0..<len))
+        
+        // Add new paths
+        self.ChangesArrayController.add(contentsOf: changes)
+        
     }
 }
 

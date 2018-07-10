@@ -37,7 +37,7 @@ class Tracker {
         let paths = defaults.getPaths()
         let changeStore = getChangeStore()
         for path in paths {
-            changes[path.id] = changeStore.getChanges(forUUID: path.id)
+            changes[path.id] = changeStore.getChangeDescriptions(forUUID: path.id)
         }
     }
     

@@ -54,7 +54,7 @@ class changetrackdimpl: NSObject, changetrackdproto {
     }
     
     func getChanges(forUUID: String, handler: ([String],[String])->Void) {
-        let changes = getChangeStore().getChanges(forUUID: UUID(uuidString: forUUID)!)
+        let changes = getChangeStore().getChangeDescriptions(forUUID: UUID(uuidString: forUUID)!)
         let paths = changes.map({(cdescription) in
             return cdescription.filePath
         })

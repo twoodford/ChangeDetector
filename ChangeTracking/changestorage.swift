@@ -74,7 +74,7 @@ public class ChangeStorage {
         return baseURL
     }
     
-    public func getChanges(forUUID uuid: UUID) -> [ChangeDescription] {
+    public func getChangeDescriptions(forUUID uuid: UUID) -> [ChangeDescription] {
         var changes: [Any] = []
         moc.performAndWait {
             do {
@@ -94,6 +94,21 @@ public class ChangeStorage {
         return ret
     }
     
+    public func getChanges(forUUID uuid: UUID) -> [DetectedChange] {
+        var changes: [Any] = []
+        moc.performAndWait {
+            do {
+                let baseURL = try _getBaseURL(forUUID: uuid)
+                if baseURL != nil {
+                    changes = (baseURL!.value(forKey: "changes") as! NSOrderedSet).array
+                }
+            } catch {
+                fatalError("Couldn't fetch BaseURL")
+            }
+        }
+        return changes as! [DetectedChange]
+    }
+    
     public func addChange(_ change: ChangeDescription, uuid: UUID) {
         moc.performAndWait {
             do {
@@ -104,6 +119,19 @@ public class ChangeStorage {
                 delta.baseURL = baseURL
                 baseURL!.addToChanges(delta)
                 moc.insert(delta)
+            } catch {
+                fatalError("Couldn't add change")
+            }
+        }
+    }
+    
+    public func removeChange(object index: Int, uuid: UUID) {
+        moc.performAndWait {
+            do {
+                let baseURL = try _getBaseURL(forUUID: uuid)!
+                let delta = baseURL.changes![index] as! NSManagedObject
+                baseURL.removeFromChanges(at: index)
+                moc.delete(delta)
             } catch {
                 fatalError("Couldn't add change")
             }
