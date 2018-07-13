@@ -107,10 +107,13 @@ public class FilesHashTracker {
     func checkFile(url: URL) -> Bool {
         let prevHash = tracks[url]
         do {
-            let fdata = try Data(contentsOf: url, options: Data.ReadingOptions.uncached)
-            tracks[url] = hash(data: fdata, algorithm: algo);
+            try autoreleasepool {
+                let fdata = try Data(contentsOf: url, options: Data.ReadingOptions.uncached)
+                tracks[url] = hash(data: fdata, algorithm: algo);
+            }
             return prevHash == tracks[url]
         } catch {
+            print("debug: checkFile() threw")
             return false // TODO
         }
     }
