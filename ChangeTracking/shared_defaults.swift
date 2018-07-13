@@ -9,7 +9,7 @@
 import Foundation
 
 public class ChangeDefaults {
-    let userDefaults = UserDefaults(suiteName: "V3585DUGLZ.home.asterius.changetrack")!
+    let userDefaults = UserDefaults(suiteName: "home.asterius.changetrack")!
     
     public init() {
     }
