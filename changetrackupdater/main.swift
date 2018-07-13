@@ -16,10 +16,21 @@ let fh = try! FileHandle(forWritingTo: STORAGE_FILE_URL.appendingPathComponent("
 let addMode = CommandLine.arguments.count > 1
 
 if !addMode {
+    print("normal mode")
     if check_lock_file(fh.fileDescriptor) != 0 {
         NSLog("Exiting due to existing file lock")
         exit(EXIT_SUCCESS) // someone else is already running
     }
+    signal(SIGTERM, { (signum) in
+        print("terminating")
+        try! FileManager.default.removeItem(at: STORAGE_FILE_URL.appendingPathComponent("updater.lock"))
+        exit(0)
+    })
+    signal(SIGINT, { (signum) in
+        print("interrupt")
+        try! FileManager.default.removeItem(at: STORAGE_FILE_URL.appendingPathComponent("updater.lock"))
+        exit(0)
+    })
 }
 
 let tracker = Tracker()
@@ -42,5 +53,6 @@ if addMode {
 
 if !addMode {
     unlock_file(fh.fileDescriptor)
+    try! FileManager.default.removeItem(at: STORAGE_FILE_URL.appendingPathComponent("updater.lock"))
 }
 fh.closeFile()
