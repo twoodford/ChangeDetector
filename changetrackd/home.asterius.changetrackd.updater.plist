@@ -10,8 +10,8 @@
 	</array>
 	<key>StartCalendarInterval</key>
 	<dict>
-		<key>Second</key>
-		<integer>10</integer>
+		<key>Weekday</key>
+		<integer>0</integer>
 	</dict>
 	<key>StandardOutPath</key>
 	<string>/Users/tim/Documents/Projects/ChangeDetector/stdout.log</string>
