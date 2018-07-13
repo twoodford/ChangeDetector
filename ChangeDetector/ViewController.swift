@@ -62,6 +62,7 @@ class ViewController: NSViewController {
 class WindowController: NSWindowController {
     var appDelegate = NSApplication.shared.delegate! as! AppDelegate
     var xpcconn = changetrackdconn()
+    let changeStore = getChangeStore()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder);
@@ -84,6 +85,11 @@ class WindowController: NSWindowController {
     @IBAction func removeURL(sender: NSToolbarItem) {
         if let row = appDelegate.viewController?.URLTable?.selectedRow {
             if row >= 0 {
+                // Remove tracked changes from the DB
+                let tr_urls = appDelegate.viewController?.URLArrayController?.arrangedObjects as! [TrackedURL]
+                let uuid = tr_urls[row].id
+                changeStore.removeBaseURL(uuid)
+                // Tell the tracking backend to remove the URL
                 appDelegate.viewController?.URLArrayController?.remove(atArrangedObjectIndex: row)
                 self.xpcconn.updateURLs(list: self.appDelegate.urlLst)
             }

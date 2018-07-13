@@ -54,7 +54,7 @@ public class ChangeStorage {
         if baseURLs.count > 1 {
             print(baseURLs.count)
             NSLog("BaseURL error, count=%i", baseURLs.count)
-            fatalError("Couldn't fetch BaseURL")
+            fatalError("Duplicate BaseURLs")
         } else if baseURLs.count == 0 {
             print("add uuid")
             print(uuid)
@@ -118,6 +118,22 @@ public class ChangeStorage {
         moc.performAndWait {
             obj.baseURL!.removeFromChanges(obj)
             moc.delete(obj)
+        }
+    }
+    
+    public func removeBaseURL(_ uuid: UUID) {
+        moc.performAndWait {
+            do {
+                let baseURL = try _getBaseURL(forUUID: uuid)!
+                while baseURL.changes!.count > 0 {
+                    let delta = baseURL.changes![0] as! DetectedChange
+                    baseURL.removeFromChanges(at: 0)
+                    moc.delete(delta)
+                }
+                moc.delete(baseURL)
+            } catch {
+                fatalError("error while removeing base URL")
+            }
         }
     }
     
