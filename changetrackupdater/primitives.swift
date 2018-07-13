@@ -144,6 +144,9 @@ public class DirectoryTracker : ChangeTracker {
     var paths: [String: String] = [:];
     var base: URL?;
     let fileTracker = FilesHashTracker()
+    var reportHashChanges = true
+    var reportRemovedFiles = true
+    var reportAddedFiles = true
     
     public required init() { }
     
@@ -196,6 +199,9 @@ public class DirectoryTracker : ChangeTracker {
             
             // Run the file checks
             var fileChanges = fileTracker.didChange()
+            if !reportHashChanges {
+                fileChanges = []
+            }
             
             // Convert URL-based data back to relative paths
             let droppedComponents = baseU.pathComponents.count
@@ -206,11 +212,15 @@ public class DirectoryTracker : ChangeTracker {
             
             // Combine change sources
             for url in newURLs {
-                fileChanges.append(ChangeDescription(path: url.path, extraInfo: "New file"))
+                if reportAddedFiles {
+                    fileChanges.append(ChangeDescription(path: url.path, extraInfo: "New file"))
+                }
             }
             for path in removedPaths {
                 let absPath = basePath+"/"+path
-                fileChanges.append(ChangeDescription(path: absPath, extraInfo: "File disappeared"))
+                if reportRemovedFiles {
+                    fileChanges.append(ChangeDescription(path: absPath, extraInfo: "File disappeared"))
+                }
                 paths.removeValue(forKey: path)
             }
             
