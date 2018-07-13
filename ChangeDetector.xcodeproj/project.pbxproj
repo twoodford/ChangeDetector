@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2264240320C8568000D5DBF2 /* shared_defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240120C8561E00D5DBF2 /* shared_defaults.swift */; };
+		226A1B2020F835FB003845AB /* ChangeTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */; };
 		2272439D20EAB9BF009EF7E5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272439C20EAB9BF009EF7E5 /* main.swift */; };
 		227243A520EABA5C009EF7E5 /* storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225F20E034AF0077A9C2 /* storage.swift */; };
 		227243A620EABA5E009EF7E5 /* changestorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4225D20E033F00077A9C2 /* changestorage.swift */; };
@@ -152,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226A1B2020F835FB003845AB /* ChangeTracking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
