@@ -15,6 +15,8 @@ class ViewController: NSViewController {
     @IBOutlet var ChangesArrayController: NSArrayController!;
     @IBOutlet var URLTable: NSTableView!;
     @IBOutlet var ChangesTable: NSTableView!;
+    @IBOutlet var StatusText: NSTextField!;
+    @IBOutlet var ProgressIndicator: NSProgressIndicator!;
     @objc dynamic var changeList: [ChangeDescription] = []
     
     @objc var appDelegate = NSApplication.shared.delegate! as! AppDelegate
@@ -57,6 +59,18 @@ class ViewController: NSViewController {
         // Add new paths
         self.ChangesArrayController.add(contentsOf: changes)
     }
+    
+    func statusStartManualUpdate() {
+        StatusText.stringValue = "Updating..."
+        ProgressIndicator.startAnimation(self)
+        ProgressIndicator.isHidden = false
+    }
+    
+    func statusFinishManualUpdate() {
+        StatusText.stringValue = "Update Complete"
+        ProgressIndicator.stopAnimation(self)
+        ProgressIndicator.isHidden = true
+    }
 }
 
 class WindowController: NSWindowController {
@@ -97,8 +111,11 @@ class WindowController: NSWindowController {
     }
     
     @IBAction func forceUpdate(sender: NSToolbarItem) {
+        appDelegate.viewController!.statusStartManualUpdate()
         xpcconn.update {
-            // nothing for now
+            DispatchQueue.main.async {
+                self.appDelegate.viewController!.statusFinishManualUpdate()
+            }
         }
     }
 }

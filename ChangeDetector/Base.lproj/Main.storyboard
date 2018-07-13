@@ -451,7 +451,7 @@ CA
                                 <subviews>
                                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="y3Y-5l-LMN">
                                         <rect key="frame" x="0.0" y="0.0" width="450" height="111"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <clipView key="contentView" ambiguous="YES" id="ioQ-DT-ukL">
                                             <rect key="frame" x="1" y="0.0" width="448" height="110"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -522,7 +522,7 @@ CA
                                     </scrollView>
                                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Aa5-K5-oXr">
                                         <rect key="frame" x="0.0" y="121" width="450" height="189"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <clipView key="contentView" ambiguous="YES" id="r7X-li-Ls1">
                                             <rect key="frame" x="1" y="0.0" width="448" height="188"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -637,7 +637,7 @@ CA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CHu-ak-tIL">
-                                <rect key="frame" x="5" y="1" width="42" height="17"/>
+                                <rect key="frame" x="5" y="1" width="221" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Ready" id="iGV-uA-dIt">
                                     <font key="font" metaFont="system"/>
@@ -650,9 +650,10 @@ CA
                     <connections>
                         <outlet property="ChangesArrayController" destination="eSa-N3-nJd" id="tui-gF-t2Z"/>
                         <outlet property="ChangesTable" destination="IRc-ZR-TJP" id="Gcv-wQ-L7n"/>
+                        <outlet property="ProgressIndicator" destination="HTd-qp-rsa" id="88M-37-kuP"/>
+                        <outlet property="StatusText" destination="CHu-ak-tIL" id="Vww-pP-lKg"/>
                         <outlet property="URLArrayController" destination="Kw0-DM-bIT" id="sjh-Ix-03C"/>
                         <outlet property="URLTable" destination="eiW-z8-p7H" id="p8i-7c-Mqj"/>
-                        <outlet property="url" destination="5tj-Ew-yMA" id="wqm-En-tr9"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
