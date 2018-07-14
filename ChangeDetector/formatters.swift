@@ -20,3 +20,27 @@ class CTURLFormatter : Formatter {
         return "(URL unavailable)"
     }
 }
+
+class CTDurationFormatter : Formatter {
+    let formatter = DateComponentsFormatter()
+    
+    override init() {
+        formatter.unitsStyle = .short
+        formatter.allowsFractionalUnits = true
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        formatter.unitsStyle = .short
+        formatter.allowsFractionalUnits = true
+        super.init(coder: aDecoder)
+    }
+    
+    override func string(for obj: Any?) -> String {
+        if let duration = obj as? TimeInterval {
+            return formatter.string(from: duration)!
+        } else {
+            return "()"
+        }
+    }
+}

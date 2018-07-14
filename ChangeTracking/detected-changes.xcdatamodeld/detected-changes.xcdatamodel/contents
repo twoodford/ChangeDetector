@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BaseURL" representedClassName="BaseURL" syncable="YES" codeGenerationType="class">
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lastUpdateDuration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="uuid" attributeType="String" syncable="YES"/>
         <relationship name="changes" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DetectedChange" inverseName="baseURL" inverseEntity="DetectedChange" syncable="YES"/>
     </entity>
@@ -11,7 +13,7 @@
         <relationship name="baseURL" maxCount="1" deletionRule="Nullify" destinationEntity="BaseURL" inverseName="changes" inverseEntity="BaseURL" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BaseURL" positionX="-324" positionY="-10" width="128" height="75"/>
+        <element name="BaseURL" positionX="-324" positionY="-10" width="128" height="105"/>
         <element name="DetectedChange" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

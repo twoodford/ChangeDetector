@@ -138,6 +138,44 @@ public class ChangeStorage {
         }
     }
     
+    public func recordUpdate(uuid: UUID, duration: TimeInterval) {
+        moc.performAndWait {
+            do {
+                let baseURL = try _getBaseURL(forUUID: uuid)!
+                baseURL.lastUpdateDuration = duration
+                baseURL.lastUpdate = Date()
+            } catch {
+                print("Warn: failed to update duration")
+            }
+        }
+    }
+    
+    public func getUpdateTime(uuid: UUID) -> Date? {
+        var ret: Date? = nil
+        moc.performAndWait {
+            do {
+                ret = try _getBaseURL(forUUID: uuid)?.lastUpdate
+            } catch {
+                print("Warn: failed to update duration")
+            }
+        }
+        return ret
+    }
+    
+    public func getUpdateDuration(uuid: UUID) -> TimeInterval {
+        var ret: TimeInterval = 0
+        moc.performAndWait {
+            do {
+                if let x = try _getBaseURL(forUUID: uuid)?.lastUpdateDuration {
+                    ret = x
+                }
+            } catch {
+                print("Warn: failed to update duration")
+            }
+        }
+        return ret
+    }
+    
     public func commit() {
         var savedOK = false
         moc.performAndWait() {

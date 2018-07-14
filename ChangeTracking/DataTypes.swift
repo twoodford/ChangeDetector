@@ -14,6 +14,19 @@ public class TrackedURL : NSObject,NSSecureCoding {
     public var urlStr:String;
     public var url:URL;
     public var id:UUID;
+    let changeDatStore = getChangeStore()
+    
+    @objc public var lastUpdate: Date? {
+        get {
+            return changeDatStore.getUpdateTime(uuid: id)
+        }
+    }
+    
+    @objc public var lastUpdateDuration: TimeInterval {
+        get {
+            return changeDatStore.getUpdateDuration(uuid: id)
+        }
+    }
     
     public init(trackURL: URL, uuid: UUID? = nil) {
         url = trackURL;

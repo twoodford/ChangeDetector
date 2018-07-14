@@ -75,12 +75,13 @@ class Tracker {
         __osaSendNotification(withText: "New file changes detected")
     }
     
-    func _storeChanges(uuid: UUID, addChanges: [ChangeDescription]) {
+    func _storeChanges(uuid: UUID, addChanges: [ChangeDescription], duration: TimeInterval) {
         changes[uuid]!.append(contentsOf: addChanges)
         let changeStore = getChangeStore()
         for addChange in addChanges {
             changeStore.addChange(addChange, uuid: uuid)
         }
+        changeStore.recordUpdate(uuid: uuid, duration: duration)
         changeStore.commit()
     }
     
@@ -103,13 +104,14 @@ class Tracker {
         // Decode change checking data
         if let decodedDat = try? JSONSerialization.jsonObject(with: Data(contentsOf: trackDataURL), options: []) as! [String:Any]{
             if let trackerType = decodedDat["tracker"] as? String {
+                let updateStart = Date()
                 let tracker = getTracker(trackerID: trackerType)!
                 tracker.setTrackData(baseURL: path.url, dat: decodedDat["data"]!)
                 let addChanges = tracker.didChange()
-                _storeChanges(uuid: path.id, addChanges: addChanges)
                 if addChanges.count > 0 {
                     newChanges = true
                 }
+                _storeChanges(uuid: path.id, addChanges: addChanges, duration: -updateStart.timeIntervalSinceNow)
                 try! trackerData(tracker: tracker, trackerType: trackerType).write(to: trackDataURL)
             } else {
                 print("error: could not find tracker class")
