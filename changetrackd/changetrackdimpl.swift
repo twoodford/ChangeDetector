@@ -19,7 +19,7 @@ class changetrackdimpl: NSObject, changetrackdproto {
         //        tracker.scheduleUpdater(delaySeconds: 4)
     }
     
-    func setPaths(urls: [String], uuids: [String]) {
+    func setPaths(urls: [String], uuids: [String], onFinish: ()->Void) {
         var i=0;
         var tracks: [TrackedURL] = []
         while(i<urls.count) {
@@ -29,6 +29,7 @@ class changetrackdimpl: NSObject, changetrackdproto {
             i+=1
         }
         setPaths(tracks)
+        onFinish()
     }
     
     func setPaths(_ paths: [TrackedURL]) {

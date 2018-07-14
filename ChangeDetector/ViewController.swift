@@ -71,6 +71,18 @@ class ViewController: NSViewController {
         ProgressIndicator.stopAnimation(self)
         ProgressIndicator.isHidden = true
     }
+    
+    func statusStartAddUpdate() {
+        StatusText.stringValue = "Adding path..."
+        ProgressIndicator.startAnimation(self)
+        ProgressIndicator.isHidden = false
+    }
+    
+    func statusFinishAddUpdate() {
+        StatusText.stringValue = "Added path"
+        ProgressIndicator.stopAnimation(self)
+        ProgressIndicator.isHidden = true
+    }
 }
 
 class WindowController: NSWindowController {
@@ -83,6 +95,7 @@ class WindowController: NSWindowController {
     }
     
     @IBAction func addURL(caller: NSToolbarItem) {
+        self.appDelegate.viewController!.statusStartAddUpdate()
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
         openPanel.canChooseDirectories = true
@@ -91,7 +104,11 @@ class WindowController: NSWindowController {
         openPanel.beginSheetModal(for: self.window!, completionHandler: { (result) -> Void in
             if result == NSApplication.ModalResponse.OK {
                 self.appDelegate.urlLst.append(TrackedURL(trackURL: openPanel.url!));
-                self.xpcconn.updateURLs(list: self.appDelegate.urlLst)
+                self.xpcconn.updateURLs(list: self.appDelegate.urlLst, onFinish: {() -> Void in
+                    DispatchQueue.main.async {
+                        self.appDelegate.viewController!.statusFinishAddUpdate()
+                    }
+                })
             }
         });
     }
@@ -105,7 +122,7 @@ class WindowController: NSWindowController {
                 changeStore.removeBaseURL(uuid)
                 // Tell the tracking backend to remove the URL
                 appDelegate.viewController?.URLArrayController?.remove(atArrangedObjectIndex: row)
-                self.xpcconn.updateURLs(list: self.appDelegate.urlLst)
+                self.xpcconn.updateURLs(list: self.appDelegate.urlLst, onFinish: {() -> Void in })
             }
         }
     }
