@@ -132,6 +132,10 @@ class WindowController: NSWindowController {
         xpcconn.update {
             DispatchQueue.main.async {
                 self.appDelegate.viewController!.statusFinishManualUpdate()
+                let selRow = self.appDelegate.viewController!.URLTable.selectedRow
+                if selRow >= 0 {
+                    self.appDelegate.viewController!.refreshChangesTable(URLRow: selRow)
+                }
             }
         }
     }
