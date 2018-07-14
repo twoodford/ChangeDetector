@@ -107,6 +107,7 @@ class WindowController: NSWindowController {
                 self.xpcconn.updateURLs(list: self.appDelegate.urlLst, onFinish: {() -> Void in
                     DispatchQueue.main.async {
                         self.appDelegate.viewController!.statusFinishAddUpdate()
+                        self.appDelegate.viewController!.URLTable.reloadData()
                     }
                 })
             }
@@ -135,6 +136,7 @@ class WindowController: NSWindowController {
                 let selRow = self.appDelegate.viewController!.URLTable.selectedRow
                 if selRow >= 0 {
                     self.appDelegate.viewController!.refreshChangesTable(URLRow: selRow)
+                    self.appDelegate.viewController!.URLTable.reloadData()
                 }
             }
         }
