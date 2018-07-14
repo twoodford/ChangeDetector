@@ -103,7 +103,9 @@ class WindowController: NSWindowController {
         openPanel.canChooseFiles = true
         openPanel.beginSheetModal(for: self.window!, completionHandler: { (result) -> Void in
             if result == NSApplication.ModalResponse.OK {
-                self.appDelegate.urlLst.append(TrackedURL(trackURL: openPanel.url!));
+                let newURL = TrackedURL(trackURL: openPanel.url!)
+                self.appDelegate.urlLst.append(newURL);
+                getChangeStore().addUUID(newURL.id)
                 self.xpcconn.updateURLs(list: self.appDelegate.urlLst, onFinish: {() -> Void in
                     DispatchQueue.main.async {
                         self.appDelegate.viewController!.statusFinishAddUpdate()

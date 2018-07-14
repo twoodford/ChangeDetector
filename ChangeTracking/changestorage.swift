@@ -49,29 +49,27 @@ public class ChangeStorage {
     func _getBaseURL(forUUID uuid: UUID) throws -> BaseURL? {
         let req = NSFetchRequest<NSFetchRequestResult>(entityName: "BaseURL")
         req.predicate = NSPredicate(format: "uuid == %@", argumentArray: [uuid.uuidString])
-        print(req.predicate!)
+        //DBG print(req.predicate!)
         let baseURLs = try moc.fetch(req)
         if baseURLs.count > 1 {
             print(baseURLs.count)
             NSLog("BaseURL error, count=%i", baseURLs.count)
             fatalError("Duplicate BaseURLs")
         } else if baseURLs.count == 0 {
-            print("add uuid")
-            print(uuid)
-            _addUUID(uuid)
             return nil
         }
         return (baseURLs[0] as! BaseURL)
     }
     
-    // Must be called from inside a perform block
-    func _addUUID(_ uuid: UUID) -> BaseURL {
-        let baseURL = BaseURL(context: moc)
-        baseURL.uuid = uuid.uuidString
-        baseURL.changes = NSOrderedSet()
-        moc.insert(baseURL)
-        try! moc.save()
-        return baseURL
+    public func addUUID(_ uuid: UUID) {
+        moc.performAndWait {
+            let baseURL = BaseURL(context: moc)
+            baseURL.uuid = uuid.uuidString
+            baseURL.changes = NSOrderedSet()
+            moc.insert(baseURL)
+            try! moc.save()
+        }
+        self.commit()
     }
     
     public func getChangeDescriptions(forUUID uuid: UUID) -> [ChangeDescription] {
