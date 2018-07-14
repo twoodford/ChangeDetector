@@ -106,6 +106,7 @@ public class ChangeStorage {
                 delta.chDescription = change.info
                 delta.path = URL(fileURLWithPath: change.filePath)
                 delta.baseURL = baseURL
+                delta.detectDate = Date()
                 baseURL!.addToChanges(delta)
                 moc.insert(delta)
             } catch {
