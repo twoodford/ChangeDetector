@@ -555,7 +555,12 @@ CA
                                                                             <rect key="frame" x="0.0" y="0.0" width="290" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="eA4-XK-eIO">
-                                                                                <customFormatter key="formatter" id="pRe-oq-Xiz" customClass="CTURLFormatter" customModule="ChangeDetector" customModuleProvider="target"/>
+                                                                                <customFormatter key="formatter" id="pRe-oq-Xiz" customClass="CTURLSizeFormatter" customModule="ChangeDetector" customModuleProvider="target">
+                                                                                    <connections>
+                                                                                        <outlet property="table" destination="IRc-ZR-TJP" id="Yp2-VZ-q2U"/>
+                                                                                        <outlet property="tableCol" destination="vPx-UU-Bu3" id="RfT-dj-4SN"/>
+                                                                                    </connections>
+                                                                                </customFormatter>
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -663,7 +668,7 @@ CA
                                                 </tableView>
                                             </subviews>
                                         </clipView>
-                                        <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.076923076923076927" horizontal="YES" id="hr2-TN-CVL">
+                                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="hr2-TN-CVL">
                                             <rect key="frame" x="1" y="173" width="448" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
