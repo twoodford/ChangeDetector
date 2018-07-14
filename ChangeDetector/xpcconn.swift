@@ -22,7 +22,7 @@ class changetrackdconn {
         self._backend.invalidate()
     }
     
-    func updateURLs(list: [TrackedURL]) {
+    func updateURLs(list: [TrackedURL], onFinish: ()->Void) {
         let connection = self._backend.remoteObjectProxyWithErrorHandler {
             (error) in print("remote proxy error: %@", error)
             } as! changetrackdproto
@@ -32,7 +32,7 @@ class changetrackdconn {
             urls.append(track.urlStr)
             uuids.append(track.id.uuidString)
         }
-        connection.setPaths(urls: urls, uuids: uuids)
+        connection.setPaths(urls: urls, uuids: uuids, onFinish: onFinish)
     }
     
     func getChanges(forUUID: UUID, handler: ([String],[String])->Void) {

@@ -15,6 +15,8 @@ class ViewController: NSViewController {
     @IBOutlet var ChangesArrayController: NSArrayController!;
     @IBOutlet var URLTable: NSTableView!;
     @IBOutlet var ChangesTable: NSTableView!;
+    @IBOutlet var StatusText: NSTextField!;
+    @IBOutlet var ProgressIndicator: NSProgressIndicator!;
     @objc dynamic var changeList: [ChangeDescription] = []
     
     @objc var appDelegate = NSApplication.shared.delegate! as! AppDelegate
@@ -57,6 +59,30 @@ class ViewController: NSViewController {
         // Add new paths
         self.ChangesArrayController.add(contentsOf: changes)
     }
+    
+    func statusStartManualUpdate() {
+        StatusText.stringValue = "Updating..."
+        ProgressIndicator.startAnimation(self)
+        ProgressIndicator.isHidden = false
+    }
+    
+    func statusFinishManualUpdate() {
+        StatusText.stringValue = "Update Complete"
+        ProgressIndicator.stopAnimation(self)
+        ProgressIndicator.isHidden = true
+    }
+    
+    func statusStartAddUpdate() {
+        StatusText.stringValue = "Adding path..."
+        ProgressIndicator.startAnimation(self)
+        ProgressIndicator.isHidden = false
+    }
+    
+    func statusFinishAddUpdate() {
+        StatusText.stringValue = "Added path"
+        ProgressIndicator.stopAnimation(self)
+        ProgressIndicator.isHidden = true
+    }
 }
 
 class WindowController: NSWindowController {
@@ -69,6 +95,7 @@ class WindowController: NSWindowController {
     }
     
     @IBAction func addURL(caller: NSToolbarItem) {
+        self.appDelegate.viewController!.statusStartAddUpdate()
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
         openPanel.canChooseDirectories = true
@@ -77,7 +104,11 @@ class WindowController: NSWindowController {
         openPanel.beginSheetModal(for: self.window!, completionHandler: { (result) -> Void in
             if result == NSApplication.ModalResponse.OK {
                 self.appDelegate.urlLst.append(TrackedURL(trackURL: openPanel.url!));
-                self.xpcconn.updateURLs(list: self.appDelegate.urlLst)
+                self.xpcconn.updateURLs(list: self.appDelegate.urlLst, onFinish: {() -> Void in
+                    DispatchQueue.main.async {
+                        self.appDelegate.viewController!.statusFinishAddUpdate()
+                    }
+                })
             }
         });
     }
@@ -91,14 +122,17 @@ class WindowController: NSWindowController {
                 changeStore.removeBaseURL(uuid)
                 // Tell the tracking backend to remove the URL
                 appDelegate.viewController?.URLArrayController?.remove(atArrangedObjectIndex: row)
-                self.xpcconn.updateURLs(list: self.appDelegate.urlLst)
+                self.xpcconn.updateURLs(list: self.appDelegate.urlLst, onFinish: {() -> Void in })
             }
         }
     }
     
     @IBAction func forceUpdate(sender: NSToolbarItem) {
+        appDelegate.viewController!.statusStartManualUpdate()
         xpcconn.update {
-            // nothing for now
+            DispatchQueue.main.async {
+                self.appDelegate.viewController!.statusFinishManualUpdate()
+            }
         }
     }
 }
