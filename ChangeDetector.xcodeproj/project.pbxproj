@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		225CD32320FA5E4100CDD49B /* formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD32220FA5E4100CDD49B /* formatters.swift */; };
 		2264240320C8568000D5DBF2 /* shared_defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264240120C8561E00D5DBF2 /* shared_defaults.swift */; };
 		226A1B2020F835FB003845AB /* ChangeTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */; };
 		2272439D20EAB9BF009EF7E5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272439C20EAB9BF009EF7E5 /* main.swift */; };
@@ -112,6 +113,7 @@
 /* Begin PBXFileReference section */
 		2207D45820C98BDF00961F77 /* filetypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filetypes.swift; sourceTree = "<group>"; };
 		2207D45A20C998C500961F77 /* tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tracker.swift; sourceTree = "<group>"; };
+		225CD32220FA5E4100CDD49B /* formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = formatters.swift; sourceTree = "<group>"; };
 		2264240120C8561E00D5DBF2 /* shared_defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shared_defaults.swift; sourceTree = "<group>"; };
 		2264240420C8755500D5DBF2 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
 		2264240620C875AC00D5DBF2 /* primitives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = primitives.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				2275B06F20C5B22B003F28D3 /* ChangeDetector.entitlements */,
 				2275B0A120C70BB6003F28D3 /* xpcconn.swift */,
 				2275B09020C5B556003F28D3 /* ChangeDetector-Bridging-Header.h */,
+				225CD32220FA5E4100CDD49B /* formatters.swift */,
 			);
 			path = ChangeDetector;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			files = (
 				2275B06820C5B22B003F28D3 /* ViewController.swift in Sources */,
 				22ABD07120E6E7090039210F /* xpcconn.swift in Sources */,
+				225CD32320FA5E4100CDD49B /* formatters.swift in Sources */,
 				2275B06620C5B22B003F28D3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
