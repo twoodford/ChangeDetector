@@ -76,7 +76,7 @@ public class ChangeStorage {
         let changes = getChanges(forUUID: uuid)
         var ret: [ChangeDescription] = []
         for change in changes {
-            ret.append(ChangeDescription(path: change.path!.absoluteString, extraInfo: change.chDescription!))
+            ret.append(ChangeDescription(path: change.path!, extraInfo: change.chDescription!))
         }
         return ret
     }
@@ -102,7 +102,7 @@ public class ChangeStorage {
                 let baseURL = try _getBaseURL(forUUID: uuid)
                 let delta = DetectedChange(context: moc)
                 delta.chDescription = change.info
-                delta.path = URL(fileURLWithPath: change.filePath)
+                delta.path = change.filePath
                 delta.baseURL = baseURL
                 delta.detectDate = Date()
                 baseURL!.addToChanges(delta)

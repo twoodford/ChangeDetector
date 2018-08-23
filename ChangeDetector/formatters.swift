@@ -21,6 +21,15 @@ class CTURLFormatter : Formatter {
     }
 }
 
+class CTPathFormatter : Formatter {
+    override func string(for obj: Any?) -> String {
+        if let path = obj as? String {
+            return path
+        }
+        return "(URL unavailable)"
+    }
+}
+
 class CTDurationFormatter : Formatter {
     let formatter = DateComponentsFormatter()
     
