@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="aAq-xx-8D7" kind="show" id="gmS-we-fVD"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -385,6 +389,135 @@ CA
             </objects>
             <point key="canvasLocation" x="618" y="-43"/>
         </scene>
+        <!--Preferences Window-->
+        <scene sceneID="Em3-OJ-a4g">
+            <objects>
+                <windowController id="aAq-xx-8D7" userLabel="Preferences Window" sceneMemberID="viewController">
+                    <window key="window" title="ChangeDetector Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="mTz-Rh-Nx2">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="294" y="362" width="257" height="117"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+                        <connections>
+                            <outlet property="delegate" destination="aAq-xx-8D7" id="Bw0-aj-4Lh"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="svd-yY-cyF" kind="relationship" relationship="window.shadowedContentViewController" id="UXK-Mz-C0S"/>
+                    </connections>
+                </windowController>
+                <customObject id="pxQ-EU-ggT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="619" y="198"/>
+        </scene>
+        <!--Preferences View Controller-->
+        <scene sceneID="tKu-5c-pLm">
+            <objects>
+                <viewController id="svd-yY-cyF" customClass="PreferencesViewController" customModule="ChangeDetector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="eMB-se-vSa">
+                        <rect key="frame" x="0.0" y="0.0" width="283" height="154"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-Jj-MQb">
+                                <rect key="frame" x="20" y="117" width="175" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Automatically run checks at " id="Ef2-58-x7g">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l4T-aH-ROg">
+                                <rect key="frame" x="22" y="20" width="135" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Close window to save" id="8Zt-oI-GTE">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4t-Yl-kls">
+                                <rect key="frame" x="32" y="53" width="95" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Hour of Day" bezelStyle="regularSquare" imagePosition="left" inset="2" id="en6-jR-i75">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <binding destination="VLN-XK-Jcr" name="value" keyPath="values.sch_hourEnabled" id="pu0-Kq-gOO"/>
+                                </connections>
+                            </button>
+                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eec-aX-66c">
+                                <rect key="frame" x="182" y="84" width="19" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="7" id="DJy-Nr-QAK"/>
+                                <connections>
+                                    <binding destination="VLN-XK-Jcr" name="value" keyPath="values.sch_weekDay" id="qLP-jH-v0j"/>
+                                    <binding destination="VLN-XK-Jcr" name="enabled" keyPath="values.sch_weekDayEnabled" id="zFs-z0-Z7F"/>
+                                </connections>
+                            </stepper>
+                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8YF-rG-bq2">
+                                <rect key="frame" x="182" y="49" width="19" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="23" id="w6E-Nz-KTr"/>
+                                <connections>
+                                    <binding destination="VLN-XK-Jcr" name="value" keyPath="values.sch_hour" id="gJe-qx-b45"/>
+                                    <binding destination="VLN-XK-Jcr" name="enabled" keyPath="values.sch_hourEnabled" id="LVp-xc-jk6"/>
+                                </connections>
+                            </stepper>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iY7-iK-s7I">
+                                <rect key="frame" x="144" y="86" width="39" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Ywf-XB-PTp">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="N75-Y5-kto">
+                                        <real key="minimum" value="0.0"/>
+                                        <real key="maximum" value="7"/>
+                                    </numberFormatter>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="VLN-XK-Jcr" name="value" keyPath="values.sch_weekDay" id="LII-Gb-pQP"/>
+                                    <binding destination="VLN-XK-Jcr" name="enabled" keyPath="values.sch_weekDayEnabled" id="Sar-lO-6gV"/>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYs-F6-i6F">
+                                <rect key="frame" x="144" y="51" width="39" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="9zB-lQ-pL0">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="rTM-KZ-fPX">
+                                        <real key="minimum" value="0.0"/>
+                                        <real key="maximum" value="23"/>
+                                    </numberFormatter>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="VLN-XK-Jcr" name="value" keyPath="values.sch_hour" id="CY5-Ne-UOq"/>
+                                    <binding destination="VLN-XK-Jcr" name="enabled" keyPath="values.sch_hourEnabled" id="82L-UI-FjZ"/>
+                                </connections>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mux-ia-vhr">
+                                <rect key="frame" x="32" y="88" width="99" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Day of Week" bezelStyle="regularSquare" imagePosition="left" inset="2" id="uwS-pA-MCQ">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <binding destination="VLN-XK-Jcr" name="value" keyPath="values.sch_weekDayEnabled" id="VQO-0Z-Fj0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="hxM-Vv-NK1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController id="VLN-XK-Jcr"/>
+            </objects>
+            <point key="canvasLocation" x="619" y="484"/>
+        </scene>
         <!--Main Window-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
@@ -414,6 +547,7 @@ CA
                                     <nil key="toolTip"/>
                                     <connections>
                                         <action selector="forceUpdateWithSender:" target="B8D-0N-5wS" id="eMW-aI-pde"/>
+                                        <binding destination="rKT-5S-xWu" name="enabled" keyPath="values.enableRefreshButton" id="7Lo-il-dPR"/>
                                     </connections>
                                 </toolbarItem>
                             </allowedToolbarItems>
@@ -429,6 +563,7 @@ CA
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="refreshButton" destination="Pjd-DV-JnR" id="mEl-47-S8l"/>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="Wl8-9K-nnb"/>
                     </connections>
                 </windowController>
@@ -556,7 +691,7 @@ CA
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jT8-JN-8Qx">
                                                                             <rect key="frame" x="0.0" y="0.0" width="64" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="3jP-dj-AHo">
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="3jP-dj-AHo">
                                                                                 <customFormatter key="formatter" id="psR-1w-jF0" customClass="CTDurationFormatter" customModule="ChangeDetector" customModuleProvider="target"/>
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -581,7 +716,7 @@ CA
                                                 </tableView>
                                             </subviews>
                                         </clipView>
-                                        <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="J5m-4z-iaT">
+                                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="J5m-4z-iaT">
                                             <rect key="frame" x="1" y="95" width="448" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>

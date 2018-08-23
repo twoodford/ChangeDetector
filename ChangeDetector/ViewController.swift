@@ -89,6 +89,8 @@ class WindowController: NSWindowController {
     var appDelegate = NSApplication.shared.delegate! as! AppDelegate
     var xpcconn = changetrackdconn()
     let changeStore = getChangeStore()
+    @IBOutlet var refreshButton: NSToolbarItem!
+    var enableRefreshButton = true
     
     required init?(coder: NSCoder) {
         super.init(coder: coder);
@@ -96,6 +98,7 @@ class WindowController: NSWindowController {
     
     @IBAction func addURL(caller: NSToolbarItem) {
         self.appDelegate.viewController!.statusStartAddUpdate()
+        self.refreshButton.isEnabled = false
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
         openPanel.canChooseDirectories = true
@@ -110,6 +113,7 @@ class WindowController: NSWindowController {
                     DispatchQueue.main.async {
                         self.appDelegate.viewController!.statusFinishAddUpdate()
                         self.appDelegate.viewController!.URLTable.reloadData()
+                        self.refreshButton.isEnabled = true
                     }
                 })
             }
@@ -132,6 +136,7 @@ class WindowController: NSWindowController {
     
     @IBAction func forceUpdate(sender: NSToolbarItem) {
         appDelegate.viewController!.statusStartManualUpdate()
+        self.refreshButton.isEnabled = false
         xpcconn.update {
             DispatchQueue.main.async {
                 self.appDelegate.viewController!.statusFinishManualUpdate()
@@ -139,6 +144,7 @@ class WindowController: NSWindowController {
                 if selRow >= 0 {
                     self.appDelegate.viewController!.refreshChangesTable(URLRow: selRow)
                     self.appDelegate.viewController!.URLTable.reloadData()
+                    self.refreshButton.isEnabled = true
                 }
             }
         }
