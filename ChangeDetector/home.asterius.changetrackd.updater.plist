@@ -6,14 +6,12 @@
 	<string>home.asterius.changetrackd.updater</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>%@</string>
+		<string>placeholder</string>
 	</array>
 	<key>StartCalendarInterval</key>
 	<dict>
-		<key>Weekday</key>
+		<key>Minute</key>
 		<integer>0</integer>
 	</dict>
-	<key>StandardOutPath</key>
-	<string>/Users/tim/Documents/Projects/ChangeDetector/stdout.log</string>
 </dict>
 </plist>
