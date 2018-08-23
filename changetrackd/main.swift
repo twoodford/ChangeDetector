@@ -46,15 +46,6 @@ class XPCServiceDelegate : NSObject, NSXPCListenerDelegate {
     }
 }
 
-let dispatcher = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
-dispatcher.async {
-    do {
-        try writeLaunchdFile()
-    } catch {
-        print("couldn't write launchd file")
-    }
-}
-
 // Create the listener and resume it:
 let delegate = XPCServiceDelegate()
 let listener = NSXPCListener.service()
