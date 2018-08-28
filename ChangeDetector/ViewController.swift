@@ -51,13 +51,6 @@ class ViewController: NSViewController {
         let selPath = (URLArrayController.arrangedObjects as! [TrackedURL])[URLRow]
         
         let changes = changeStore.getChanges(forUUID: selPath.id)
-//        let basePathLen = selPath.url.path.count
-        
-//        let truncatedCh = changes.map({(dc: DetectedChange) -> (DetectedChange) in
-//            let str = dc.path!
-//            dc.path = String(str[str.index(str.startIndex, offsetBy: basePathLen+1)...])
-//            return dc
-//        })
         
         // Clear previous
         let len = (self.ChangesArrayController.arrangedObjects as! [ChangeDescription]).count
