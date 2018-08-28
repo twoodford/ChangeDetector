@@ -48,8 +48,12 @@ class changetrackdimpl: NSObject, changetrackdproto {
         }
         for path in prevPaths {
             if !paths.contains { element in return path.isEqual(to: element) } {
-                print("removed", path.urlStr)
-                try! FileManager.default.removeItem(at: STORAGE_FILE_URL.appendingPathComponent(path.id.uuidString))
+                do {
+                    try FileManager.default.removeItem(at: STORAGE_FILE_URL.appendingPathComponent(path.id.uuidString))
+                    print("removed", path.urlStr)
+                } catch {
+                    // File probably doesn't exist
+                }
             }
         }
     }
