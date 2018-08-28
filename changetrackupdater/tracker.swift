@@ -69,6 +69,7 @@ class Tracker {
         try! self.trackerData(tracker: tracker, trackerType: trackerType).write(to: datURL)
         let changeStore = getChangeStore()
         changeStore.recordUpdate(uuid: path.id, duration: -updateStart.timeIntervalSinceNow)
+        changeStore.commit()
     }
     
     func sendChangeNotification() {
