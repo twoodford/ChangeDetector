@@ -24,6 +24,8 @@ class ViewController: NSViewController {
     let xpcconn = changetrackdconn()
     let changeStore = getChangeStore()
     
+    var numAddRunning: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -76,12 +78,18 @@ class ViewController: NSViewController {
         StatusText.stringValue = "Adding path..."
         ProgressIndicator.startAnimation(self)
         ProgressIndicator.isHidden = false
+        numAddRunning += 1
     }
     
     func statusFinishAddUpdate() {
-        StatusText.stringValue = "Added path"
-        ProgressIndicator.stopAnimation(self)
-        ProgressIndicator.isHidden = true
+        if numAddRunning == 1 {
+            numAddRunning -= 1
+            StatusText.stringValue = "Added path"
+            ProgressIndicator.stopAnimation(self)
+            ProgressIndicator.isHidden = true
+        } else if numAddRunning > 1 {
+            numAddRunning -= 1
+        }
     }
 }
 
