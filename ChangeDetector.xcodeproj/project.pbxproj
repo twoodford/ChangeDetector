@@ -35,6 +35,7 @@
 		2275B0DB20C72262003F28D3 /* ChangeTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */; };
 		2275B0EB20C72769003F28D3 /* changetrackd.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 2275B07920C5B256003F28D3 /* changetrackd.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		22ABD07120E6E7090039210F /* xpcconn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B0A120C70BB6003F28D3 /* xpcconn.swift */; };
+		22B4A6CE2134D9BF0063A8E9 /* dataextensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B4A6CD2134D9BF0063A8E9 /* dataextensions.swift */; };
 		22DC4B5920FAA0520063E44E /* home.asterius.changetrackd.updater.plist in Resources */ = {isa = PBXBuildFile; fileRef = 227243AD20EAED42009EF7E5 /* home.asterius.changetrackd.updater.plist */; };
 		22F5FEB920E5905600841935 /* changetrackdproto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275B08C20C5B408003F28D3 /* changetrackdproto.swift */; };
 /* End PBXBuildFile section */
@@ -146,6 +147,7 @@
 		2275B0BC20C721D7003F28D3 /* ChangeTracking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChangeTracking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2275B0BE20C721D8003F28D3 /* ChangeTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeTracking.h; sourceTree = "<group>"; };
 		2275B0BF20C721D8003F28D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22B4A6CD2134D9BF0063A8E9 /* dataextensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataextensions.swift; sourceTree = "<group>"; };
 		22C4225B20E033310077A9C2 /* detected-changes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "detected-changes.xcdatamodel"; sourceTree = "<group>"; };
 		22C4225D20E033F00077A9C2 /* changestorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changestorage.swift; sourceTree = "<group>"; };
 		22C4225F20E034AF0077A9C2 /* storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storage.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				22C4225F20E034AF0077A9C2 /* storage.swift */,
 				22C4225A20E033310077A9C2 /* detected-changes.xcdatamodeld */,
 				2275B0BF20C721D8003F28D3 /* Info.plist */,
+				22B4A6CD2134D9BF0063A8E9 /* dataextensions.swift */,
 			);
 			path = ChangeTracking;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2264240320C8568000D5DBF2 /* shared_defaults.swift in Sources */,
+				22B4A6CE2134D9BF0063A8E9 /* dataextensions.swift in Sources */,
 				227243A620EABA5E009EF7E5 /* changestorage.swift in Sources */,
 				227243A520EABA5C009EF7E5 /* storage.swift in Sources */,
 				227243A720EABCB2009EF7E5 /* detected-changes.xcdatamodeld in Sources */,

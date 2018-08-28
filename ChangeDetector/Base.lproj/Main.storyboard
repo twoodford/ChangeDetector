@@ -589,11 +589,11 @@ CA
                                         <rect key="frame" x="0.0" y="0.0" width="450" height="111"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <clipView key="contentView" ambiguous="YES" id="ioQ-DT-ukL">
-                                            <rect key="frame" x="1" y="0.0" width="448" height="110"/>
+                                            <rect key="frame" x="1" y="0.0" width="448" height="95"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="y3s-Qc-anw" viewBased="YES" id="eiW-z8-p7H">
-                                                    <rect key="frame" x="0.0" y="0.0" width="512" height="87"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="512" height="72"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -718,7 +718,7 @@ CA
                                             </subviews>
                                         </clipView>
                                         <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="J5m-4z-iaT">
-                                            <rect key="frame" x="1" y="94" width="448" height="16"/>
+                                            <rect key="frame" x="1" y="95" width="448" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="fig-lb-Q7v">
@@ -734,11 +734,11 @@ CA
                                         <rect key="frame" x="0.0" y="121" width="450" height="189"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <clipView key="contentView" ambiguous="YES" id="r7X-li-Ls1">
-                                            <rect key="frame" x="1" y="0.0" width="448" height="188"/>
+                                            <rect key="frame" x="1" y="0.0" width="448" height="173"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="ffg-US-LBl" viewBased="YES" id="IRc-ZR-TJP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="461" height="165"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="461" height="150"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -771,7 +771,7 @@ CA
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
                                                                             <connections>
-                                                                                <binding destination="o0j-hr-bgB" name="value" keyPath="objectValue.path" id="MZj-CZ-ZZs">
+                                                                                <binding destination="o0j-hr-bgB" name="value" keyPath="objectValue.truncatedPath" id="B5h-Eh-QdU">
                                                                                     <dictionary key="options">
                                                                                         <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                                                     </dictionary>
@@ -874,7 +874,7 @@ CA
                                             </subviews>
                                         </clipView>
                                         <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="hr2-TN-CVL">
-                                            <rect key="frame" x="1" y="172" width="448" height="16"/>
+                                            <rect key="frame" x="1" y="173" width="448" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Umh-CV-Bth">
