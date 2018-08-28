@@ -13,7 +13,10 @@ import ChangeTracking
 try! "".write(to: STORAGE_FILE_URL.appendingPathComponent("updater.lock"), atomically: false, encoding: .utf8)
 let fh = try! FileHandle(forWritingTo: STORAGE_FILE_URL.appendingPathComponent("updater.lock"))
 
-let addMode = CommandLine.arguments.count > 1
+let addMode = CommandLine.arguments.count == 2
+let intervalMode = CommandLine.arguments.count == 3
+
+print(CommandLine.arguments.count)
 
 if !addMode {
     print("normal mode")
@@ -34,7 +37,7 @@ if !addMode {
 }
 
 let tracker = Tracker()
-if addMode {
+if addMode || intervalMode {
     let tg_uuid = UUID(uuidString: CommandLine.arguments[1])!
     var url: TrackedURL? = nil
     for t_url in ChangeDefaults().getPaths() {
@@ -43,7 +46,11 @@ if addMode {
         }
     }
     if let nn_url = url {
-        tracker.addPath(path: nn_url)
+        if addMode {
+            tracker.addPath(path: nn_url)
+        } else if intervalMode {
+            let _ = tracker.changeCheck(path: nn_url)
+        }
     } else {
         fatalError("Could not locate URL")
     }
