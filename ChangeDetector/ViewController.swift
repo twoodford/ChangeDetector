@@ -140,10 +140,10 @@ class WindowController: NSWindowController {
         xpcconn.update {
             DispatchQueue.main.async {
                 self.appDelegate.viewController!.statusFinishManualUpdate()
+                self.appDelegate.viewController!.URLTable.reloadData()
                 let selRow = self.appDelegate.viewController!.URLTable.selectedRow
                 if selRow >= 0 {
                     self.appDelegate.viewController!.refreshChangesTable(URLRow: selRow)
-                    self.appDelegate.viewController!.URLTable.reloadData()
                     self.refreshButton.isEnabled = true
                 }
             }
