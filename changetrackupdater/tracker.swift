@@ -64,8 +64,11 @@ class Tracker {
         let trackerType = changeTrackerType(forFile: path.url)
         let tracker = getTracker(trackerID: trackerType)!
         tracker.setTrackData(baseURL: path.url, dat: [])
+        let updateStart = Date()
         let _ = tracker.didChange()
         try! self.trackerData(tracker: tracker, trackerType: trackerType).write(to: datURL)
+        let changeStore = getChangeStore()
+        changeStore.recordUpdate(uuid: path.id, duration: -updateStart.timeIntervalSinceNow)
     }
     
     func sendChangeNotification() {
