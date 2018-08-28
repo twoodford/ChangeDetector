@@ -28,7 +28,11 @@ func writeLaunchdFile() throws {
     if defaults.bool(forKey: "sch_hourEnabled") {
         schDict["Hour"] = defaults.integer(forKey: "sch_hour")
     }
-    plist.setValue(schDict, forKey: "StartCalendarInterval")
+    if defaults.bool(forKey: "sch_hourEnabled") || defaults.bool(forKey: "sch_weekDayEnabled") {
+        plist.setValue(schDict, forKey: "StartCalendarInterval")
+    } else {
+        plist.setValue(true, forKey: "Disabled")
+    }
     plist.write(toFile: dstPath, atomically: true)
 }
 
